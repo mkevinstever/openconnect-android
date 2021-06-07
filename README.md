@@ -1,5 +1,13 @@
 Multi-protocol version, based on [openconnect v8.03](http://www.infradead.org/openconnect/changelog.html).
 
+---
+**NOTE**
+
+There are no openconnect packages in Android store released by this project.
+Get involved (see #1) to release the Android client.
+
+---
+
 APK: [OpenConnect_1.11+multi.apk](https://drive.google.com/file/d/17IRsGNYqUav9Yf2bsInxnc0uGD6g_PZz/view)
 XDA thread: [comment](https://forum.xda-developers.com/showthread.php?p=77318683#post77318683)
 
@@ -24,11 +32,8 @@ To help out with translations, please visit
 
 ## Downloads and support
 
-Official releases are posted in the [XDA thread](http://forum.xda-developers.com/showthread.php?t=2616121) and on [Google Play](https://play.google.com/store/apps/details?id=app.openconnect).
-
-Binary APK files are also available at [F-Droid](https://f-droid.org/repository/browse/?fdid=app.openconnect).
-
-No registration is required to download from XDA or F-Droid.
+You can build the package and install it to your phone. There are
+no openconnect packages in any Android store released by this project.
 
 ## Screenshots
 
