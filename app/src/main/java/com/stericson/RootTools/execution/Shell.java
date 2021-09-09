@@ -84,7 +84,7 @@ public class Shell {
             worker.join(shellTimeout);
 
             /**
-             * The operation could not be completed before the timeout occured.
+             * The operation could not be completed before the timeout occurred.
              */
             if (worker.exit == -911) {
 
@@ -379,7 +379,7 @@ public class Shell {
                     isReading = true;
 
                     /**
-                     * If we recieve EOF then the shell closed
+                     * If we receive EOF then the shell closed
                      */
                     if (line == null)
                         break;
@@ -587,7 +587,7 @@ public class Shell {
                         break;
                     }
 
-                    Shell.error = "unkown error occured.";
+                    Shell.error = "unknown error occurred.";
                 }
             } catch (IOException e) {
                 exit = -42;

@@ -255,7 +255,7 @@ public final class RootToolsInternalMethods {
     }
 
     /**
-     * Copys a file to a destination. Because cp is not available on all android devices, we have a
+     * Copies a file to a destination. Because cp is not available on all android devices, we have a
      * fallback on the cat command
      *
      * @param source                 example: /data/data/org.adaway/files/hosts
@@ -663,7 +663,7 @@ public final class RootToolsInternalMethods {
             path += "/";
         } else if (path == null) {
             //Don't know what the user wants to do...what am I pshycic?
-            throw new Exception("Path is null, please specifiy a path");
+            throw new Exception("Path is null, please specify a path");
         }
 
         final List<String> results = new ArrayList<String>();
@@ -1125,7 +1125,7 @@ public final class RootToolsInternalMethods {
                         //We return the first found location.
                         final_symlink = RootTools.lastFoundBinaryPaths.get(0) + "/" + symlink[symlink.length - 1];
                     } else {
-                        //we couldnt find a path, return the symlink by itself.
+                        //we couldn't find a path, return the symlink by itself.
                         final_symlink = symlink[symlink.length - 1];
                     }
                 } else {

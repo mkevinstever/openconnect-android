@@ -69,7 +69,7 @@ class CIDRIP{
 		}
 		// Check if rest of netmask is only 1s
 		if(netmask != (0x1ffffffffl >> lenZeros)) {
-			// Asume no CIDR, set /32
+			// Assume no CIDR, set /32
 			return 32;
 		} else {
 			return 32 - lenZeros; 

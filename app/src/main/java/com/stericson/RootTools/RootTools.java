@@ -151,7 +151,7 @@ public final class RootTools {
     }
 
     /**
-     * Copys a file to a destination. Because cp is not available on all android devices, we have a
+     * Copies a file to a destination. Because cp is not available on all android devices, we have a
      * fallback on the cat command
      *
      * @param source                 example: /data/data/org.adaway/files/hosts
@@ -350,7 +350,7 @@ public final class RootTools {
      * This will open or return, if one is already open, a shell, you are responsible for managing the shell, reading the output
      * and for closing the shell when you are done using it.
      *
-     * @param retry a <code>int</code> to indicate how many times the ROOT shell should try to open with root priviliges...
+     * @param retry a <code>int</code> to indicate how many times the ROOT shell should try to open with root privileges...
      * @throws TimeoutException
      * @throws RootDeniedException
      * @param    root a <code>boolean</code> to Indicate whether or not you want to open a root shell or a standard shell
@@ -636,7 +636,7 @@ public final class RootTools {
      *         remounted as specified.
      */
     public static boolean remount(String file, String mountType) {
-        // Recieved a request, get an instance of Remounter
+        // Received a request, get an instance of Remounter
         Remounter remounter = new Remounter();
         // send the request.
         return (remounter.remount(file, mountType));
