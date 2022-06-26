@@ -48,7 +48,7 @@ public class X509Utils {
 		InputStream inStream;
 
 		if(certfilename.startsWith(VpnProfile.INLINE_TAG)) {
-            // The java certifcate reader is ... kind of stupid
+            // The java certificate reader is ... kind of stupid
             // It does NOT ignore chars before the --BEGIN ...
             int subIndex = certfilename.indexOf("-----BEGIN CERTIFICATE-----");
             subIndex = Math.max(0,subIndex);

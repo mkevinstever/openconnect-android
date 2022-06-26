@@ -22,24 +22,23 @@ FAQ
 Q: Why are you not answering my questions about modifying ics-openvpn/why do not help build my app on top 
    of ics-openvpn? I thought this is open source.
 
-A: There are many people building/wanting to build commercial VPN clients on top of my of my client. These
-   client often do not even honour the license my app or the license of OpenVPN. Even if these modified
-   software does honour the license I don't like doing upaid work/giving advise for free to commerical
+A: There are many people building/wanting to build commercial VPN clients on top of my client. These
+   clients often do not even honour the license of my app or the license of OpenVPN. Even if these modified
+   software does honour the license I don't like doing unpaid work/giving advise for free to commercial
    software developers. 
    
-   If you have a legitimate non commerical open source project I will gladly help you but please understand
+   If you have a legitimate non commercial open source project I will gladly help you but please understand
    my initial reservations.
-   
 
 Q: How is the OpenVPN version different from normal OpenVPN
 
-A: OpenVPN for Android uses a OpenVPN 2.4 master branch + dual stack client patches. 
+A: OpenVPN for Android uses the OpenVPN 2.4 master branch + dual stack client patches. 
    A git repository of the OpenVPN source code and changes is under: 
    https://github.com/schwabe/openvpn/tree/ds10
 
 Q: what is minivpn?
 
-A: minivpn is only a executable thats links against libopenvpn which is the normal openvpn build as
+A: minivpn is only an executable that's links against libopenvpn which is the normal openvpn build as
    library. It is done this way so the Android Play/Store apk will treat the library as normal library
    and update it on updates of the application. Also the application does not need to take care of 
    keeping minivpn up to date because it contains no code. For almost all intents and purposes
