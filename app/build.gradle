@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 24
+    compileSdkVersion 33
     defaultConfig {
         applicationId "app.openconnect"
-        minSdkVersion 14
-        targetSdkVersion 19
-        versionCode 1119
+        minSdkVersion 19
+        targetSdkVersion 33
+        versionCode 1120
         versionName "1.11+multi"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
     signingConfigs {
         release {
@@ -27,15 +27,16 @@ android {
             signingConfig signingConfigs.release
         }
     }
-    lintOptions {
-        disable 'MissingTranslation'
-        disable 'ExtraTranslation'
+    lint {
+        disable 'MissingTranslation', 'ExtraTranslation'
     }
+    namespace 'app.openconnect'
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.work:work-runtime:2.8.1'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }

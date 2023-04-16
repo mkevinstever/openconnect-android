@@ -27,6 +27,7 @@
 package app.openconnect.core;
 
 import android.Manifest.permission;
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -159,6 +160,7 @@ public class OpenVpnService extends VpnService {
 		}
 	}
 
+	@SuppressLint("UnspecifiedImmutableFlag")
 	private PendingIntent getMainActivityIntent() {
 		// Touching "Configure" on the system VPN dialog will restore the app
 		// (same as clicking the launcher icon)
@@ -166,7 +168,12 @@ public class OpenVpnService extends VpnService {
 		intent.setAction(Intent.ACTION_MAIN);
 		intent.addCategory(Intent.CATEGORY_LAUNCHER);
 
-		PendingIntent startLW = PendingIntent.getActivity(this, 0, intent, 0);
+		PendingIntent startLW = null;
+		if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+			startLW = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+		} else {
+			startLW = PendingIntent.getActivity(this, 0, intent, 0);
+		}
 		return startLW;
 	}
 

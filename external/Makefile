@@ -1,4 +1,4 @@
-NDK := /opt/android-sdk-linux_x86/android-ndk-r16b
+NDK := /opt/android-sdk-linux_x86/android-ndk-r25c
 
 JAR_DIR := ../app/libs
 JNI_DIR := ../app/src/main/jniLibs
@@ -9,8 +9,8 @@ ARCH_LIST := arm arm64 x86 x86_64
 # The __ANDROID_API__ version needs to stay in sync with
 # openconnect/android/Makefile
 NDK_ARCH_arm := armeabi
-TRIPLET_arm := arm-linux-androideabi
-CFLAGS_arm := -mthumb -Os -D__ANDROID_API__=14
+TRIPLET_arm := armv7a-linux-androideabi
+CFLAGS_arm := -mthumb -Os -D__ANDROID_API__=19
 
 NDK_ARCH_arm64 := arm64-v8a
 TRIPLET_arm64 := aarch64-linux-android
@@ -18,7 +18,7 @@ CFLAGS_arm64 := -Os -D__ANDROID_API__=26
 
 NDK_ARCH_x86 := x86
 TRIPLET_x86 := i686-linux-android
-CFLAGS_x86 := -Os -D__ANDROID_API__=14
+CFLAGS_x86 := -Os -D__ANDROID_API__=19
 
 NDK_ARCH_x86_64 := x86_64
 TRIPLET_x86_64 := x86_64-linux-android
@@ -32,12 +32,12 @@ ARCH_TARGETS := $(addprefix arch-,$(ARCH_LIST))
 ARCH_CURL_TARGETS := $(addsuffix /curl,$(ARCH_LIST))
 ARCH_STOKEN_TARGETS := $(addsuffix /libstoken.so,$(ARCH_LIST))
 ARCH_OC_TARGETS := $(addsuffix /libopenconnect.so,$(ARCH_LIST))
-ARCH_TOOLCHAIN_TARGETS := $(addsuffix /toolchain/.installed,$(ARCH_LIST))
+#ARCH_TOOLCHAIN_TARGETS := $(addsuffix /toolchain/.installed,$(ARCH_LIST))
 
 INSTALL_ARCH_TARGETS := $(addprefix install-arch-,$(ARCH_LIST))
 INSTALL_JAR_TARGETS := $(addprefix install-jar-,$(JAR_LIST))
 
-CURL_VER := 7.58.0
+CURL_VER := 8.0.1
 
 TOPDIR := $(shell pwd)
 
