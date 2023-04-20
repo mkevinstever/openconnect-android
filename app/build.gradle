@@ -2,6 +2,12 @@ plugins {
     id 'com.android.application'
 }
 
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
 android {
     namespace 'app.openconnect'
     compileSdk 33
@@ -10,20 +16,18 @@ android {
         minSdk 23
         targetSdk 33
 
-        versionCode 1120
-        versionName "1.11+multi"
+        versionCode 1121
+        versionName "1.12+multi"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
     signingConfigs {
         release {
-            if (project.hasProperty('KEYSTORE_FILE')) {
-                storeFile file(KEYSTORE_FILE)
-                storePassword KEYSTORE_PASSWORD
-                keyAlias KEYSTORE_ALIAS
-                keyPassword KEYSTORE_KEY_PASSWORD
-            }
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword keystoreProperties['storePassword']
         }
     }
 
