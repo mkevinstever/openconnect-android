@@ -25,6 +25,7 @@
 package app.openconnect;
 
 import java.util.Map;
+import java.util.Objects;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -42,10 +43,10 @@ public class ClearPasswordPreference extends DialogPreference {
         if (positiveResult) {
             PreferenceManager mPrefs = getPreferenceManager();
             SharedPreferences sp = mPrefs.getSharedPreferences();
-            for (Map.Entry<String,?> entry : sp.getAll().entrySet()) {
+            for (Map.Entry<String,?> entry : Objects.requireNonNull(sp).getAll().entrySet()) {
             	String key = entry.getKey();
             	if (key.startsWith("FORMDATA-") || key.startsWith("ACCEPTED-CERT-")) {
-            		sp.edit().putString(key, "").commit();
+            		sp.edit().putString(key, "").apply();
             	}
             }
         }

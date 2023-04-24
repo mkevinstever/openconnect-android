@@ -174,9 +174,6 @@ public class AuthFormHandler extends UserDialog
 		return "FORMDATA-" + digest(in.toString()) + "-";
 	}
 
-	private void fixPadding(View v) {
-	}
-
 	private final LinearLayout.LayoutParams fillWidth =
 			new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 
@@ -184,7 +181,6 @@ public class AuthFormHandler extends UserDialog
 		LinearLayout ll = new LinearLayout(mContext);
 		ll.setOrientation(LinearLayout.HORIZONTAL);
 		ll.setLayoutParams(fillWidth);
-		fixPadding(ll);
 
 		TextView tv = new TextView(mContext);
 		tv.setText(label);
@@ -297,7 +293,6 @@ public class AuthFormHandler extends UserDialog
 		CheckBox cb = new CheckBox(mContext);
 		cb.setText(R.string.save_password);
 		cb.setChecked(isChecked);
-		fixPadding(cb);
 		return cb;
 	}
 

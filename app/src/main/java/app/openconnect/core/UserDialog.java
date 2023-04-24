@@ -37,7 +37,7 @@ public abstract class UserDialog {
 	private boolean mDialogUp;
 	protected SharedPreferences mPrefs;
 
-	private static HashMap<String,DeferredPref> mDeferredPrefs = new HashMap<String,DeferredPref>();
+	private static final HashMap<String,DeferredPref> mDeferredPrefs = new HashMap<String,DeferredPref>();
 
 	public UserDialog(SharedPreferences prefs) {
 		mPrefs = prefs;
