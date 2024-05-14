@@ -1,19 +1,4 @@
-Multi-protocol version, based on [openconnect v8.03](http://www.infradead.org/openconnect/changelog.html).
-
----
-**NOTE**
-
-There are no openconnect packages in Android store released by this project.
-Get involved (see #1) to release the Android client.
-
----
-
-APK: [OpenConnect_1.11+multi.apk](https://drive.google.com/file/d/17IRsGNYqUav9Yf2bsInxnc0uGD6g_PZz/view)
-XDA thread: [comment](https://forum.xda-developers.com/showthread.php?p=77318683#post77318683)
-
-![screenshot-multiproto](screenshots/screenshot-multiproto.png)
-
-OpenConnect for Android
+# OpenConnect for Android
 =======================
 
 This is a VPN client for Android, based on the Linux build of
