@@ -5,3 +5,4 @@
 [submodule "external/stoken"]
 	path = external/stoken
 	url = https://github.com/cernekee/stoken
+        branch = main
