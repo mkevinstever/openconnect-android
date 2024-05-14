@@ -60,7 +60,7 @@ class CIDRIP{
 		long netmask=getInt(mask);
 
 		// Add 33. bit to ensure the loop terminates
-		netmask += 1l << 32;
+		netmask += 1L << 32;
 
 		int lenZeros = 0;
 		while((netmask & 0x1) == 0) {
@@ -68,7 +68,7 @@ class CIDRIP{
 			netmask = netmask >> 1;
 		}
 		// Check if rest of netmask is only 1s
-		if(netmask != (0x1ffffffffl >> lenZeros)) {
+		if(netmask != (0x1ffffffffL >> lenZeros)) {
 			// Assume no CIDR, set /32
 			return 32;
 		} else {

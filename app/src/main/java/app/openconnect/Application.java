@@ -33,11 +33,13 @@ import org.acra.collector.CrashReportData;
 import org.acra.sender.HttpSender;
 import org.acra.sender.ReportSenderException;
 
+ import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import app.openconnect.core.FragCache;
 import app.openconnect.core.ProfileManager;
 import app.openconnect.core.VPNLog;
 
+@SuppressLint("NonConstantResourceId")
 @ReportsCrashes(
 		mode = ReportingInteractionMode.DIALOG,
 		resDialogText = R.string.crash_dialog_text,
@@ -63,7 +65,7 @@ public class Application extends android.app.Application {
 	}
 
 	private void setupACRA() {
-		String hax0rPackages[] = { "com.koushikdutta.superuser",
+		String[] hax0rPackages = { "com.koushikdutta.superuser",
 				"com.noshufou.android.su",
 				"com.noshufou.android.su.elite",
 				"com.miui.uac",

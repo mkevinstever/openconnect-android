@@ -24,11 +24,13 @@
 
 package app.openconnect.core;
 
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
@@ -208,9 +210,14 @@ public class KeepAlive extends BroadcastReceiver {
 		}
 	}
 
+	@SuppressLint("UnspecifiedImmutableFlag")
 	private void scheduleNext(Context context, int delayMs) {
 		Intent intent = new Intent("app.openconnect.KEEPALIVE_ALARM");
-		mPendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+			mPendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+		} else {
+			mPendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+		}
 
 		AlarmManager am = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
 		am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + delayMs, mPendingIntent);

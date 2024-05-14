@@ -1,25 +1,36 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
 
 android {
-    compileSdkVersion 24
+    namespace 'app.openconnect'
+    compileSdk 33
+
     defaultConfig {
-        applicationId "app.openconnect"
-        minSdkVersion 14
-        targetSdkVersion 19
-        versionCode 1119
-        versionName "1.11+multi"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        minSdk 23
+        targetSdk 33
+
+        versionCode 1121
+        versionName "1.12+multi"
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
+
     signingConfigs {
         release {
-            if (project.hasProperty('KEYSTORE_FILE')) {
-                storeFile file(KEYSTORE_FILE)
-                storePassword KEYSTORE_PASSWORD
-                keyAlias KEYSTORE_ALIAS
-                keyPassword KEYSTORE_KEY_PASSWORD
-            }
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword keystoreProperties['storePassword']
         }
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -27,15 +38,22 @@ android {
             signingConfig signingConfigs.release
         }
     }
-    lintOptions {
-        disable 'MissingTranslation'
-        disable 'ExtraTranslation'
+
+    lint {
+        disable 'MissingTranslation', 'ExtraTranslation'
+    }
+
+    buildFeatures {
+        aidl true
+        compose true
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation 'androidx.work:work-runtime:2.8.1'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }

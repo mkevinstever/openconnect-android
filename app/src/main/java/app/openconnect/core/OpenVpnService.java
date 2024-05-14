@@ -27,6 +27,7 @@
 package app.openconnect.core;
 
 import android.Manifest.permission;
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -46,7 +47,6 @@ import app.openconnect.api.GrantPermissionsActivity;
 import app.openconnect.core.VPNLog.LogArrayAdapter;
 import app.openconnect.fragments.FeedbackFragment;
 
-import java.net.InetAddress;
 import java.util.Date;
 import java.util.Locale;
 
@@ -59,8 +59,6 @@ public class OpenVpnService extends VpnService {
 
 	public static final String START_SERVICE = "app.openconnect.START_SERVICE";
 	public static final String START_SERVICE_STICKY = "app.openconnect.START_SERVICE_STICKY";
-	public static final String ALWAYS_SHOW_NOTIFICATION = "app.openconnect.NOTIFICATION_ALWAYS_VISIBLE";
-
 	public static final String ACTION_VPN_STATUS = "app.openconnect.VPN_STATUS";
 	public static final String EXTRA_CONNECTION_STATE = "app.openconnect.connectionState";
 	public static final String EXTRA_UUID = "app.openconnect.UUID";
@@ -88,16 +86,15 @@ public class OpenVpnService extends VpnService {
 	private UserDialog mDialog;
 	private Context mDialogContext;
 
-	private final int NOTIFICATION_ID = 1;
 	private int mActivityConnections;
 	private boolean mNotificationActive;
 
 	private int mConnectionState = OpenConnectManagementThread.STATE_DISCONNECTED;
-	private String mConnectionStateNames[];
+	private String[] mConnectionStateNames;
 	private VPNStats mStats = new VPNStats();
 
-	private VPNLog mVPNLog = new VPNLog();
-	private Handler mHandler = new Handler();
+	private final VPNLog mVPNLog = new VPNLog();
+	private final Handler mHandler = new Handler();
 
 	public class LocalBinder extends Binder {
 		public OpenVpnService getService() {
@@ -159,6 +156,7 @@ public class OpenVpnService extends VpnService {
 		}
 	}
 
+	@SuppressLint("UnspecifiedImmutableFlag")
 	private PendingIntent getMainActivityIntent() {
 		// Touching "Configure" on the system VPN dialog will restore the app
 		// (same as clicking the launcher icon)
@@ -166,7 +164,8 @@ public class OpenVpnService extends VpnService {
 		intent.setAction(Intent.ACTION_MAIN);
 		intent.addCategory(Intent.CATEGORY_LAUNCHER);
 
-		PendingIntent startLW = PendingIntent.getActivity(this, 0, intent, 0);
+		PendingIntent startLW = null;
+		startLW = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 		return startLW;
 	}
 
@@ -184,10 +183,7 @@ public class OpenVpnService extends VpnService {
 	private synchronized void registerKeepAlive() {
 		String DNSServer = "8.8.8.8";
 		try {
-			String dns = ipInfo.DNS.get(0);
-			if (InetAddress.getByName(dns) != null) {
-				DNSServer = dns;
-			}
+			DNSServer = ipInfo.DNS.get(0);
 		} catch (IndexOutOfBoundsException e) {
 			/* empty DNS server list */
 		} catch (Exception e) {
@@ -292,13 +288,14 @@ public class OpenVpnService extends VpnService {
 			return bytes + (mbit ? " bit" : " B");
 
 		int exp = (int) (Math.log(bytes) / Math.log(unit));
-		String pre = (mbit ? "kMGTPE" : "KMGTPE").charAt(exp-1) + (mbit ? "" : "");
+		String pre = String.valueOf((mbit ? "kMGTPE" : "KMGTPE").charAt(exp-1));
 		if(mbit)
 			return String.format(Locale.getDefault(),"%.1f %sbit", bytes / Math.pow(unit, exp), pre);
 		else 
 			return String.format(Locale.getDefault(),"%.1f %sB", bytes / Math.pow(unit, exp), pre);
 	}
 
+	@SuppressLint("DefaultLocale")
 	public static String formatElapsedTime(long startTime) {
 		StringBuilder sb = new StringBuilder();
 		startTime = (new Date().getTime() - startTime) / 1000;
@@ -336,13 +333,13 @@ public class OpenVpnService extends VpnService {
 		mDialogContext = null;
 	}
 
-	private synchronized void setDialog(Context context, UserDialog dialog) {
-		mDialogContext = context;
+	private synchronized void setDialog(UserDialog dialog) {
 		mDialog = dialog;
 	}
 
 	@SuppressWarnings("deprecation")
 	private void updateNotification() {
+		int NOTIFICATION_ID = 1;
 		if (mDialog != null && mActivityConnections == 0 && !mNotificationActive) {
 			mNotificationActive = true;
 
@@ -396,11 +393,11 @@ public class OpenVpnService extends VpnService {
 			return ret;
 		}
 
-		setDialog(null, dialog);
+		setDialog(dialog);
 		wakeUpActivity();
 		ret = mDialog.waitForResponse();
 
-		setDialog(null, null);
+		setDialog(null);
 		return ret;
 	}
 
@@ -413,7 +410,7 @@ public class OpenVpnService extends VpnService {
 
 			@Override
 			public void run() {
-				if (stopSelfResult(startId) == false) {
+				if (!stopSelfResult(startId)) {
 					Log.w(TAG, "not stopping service due to startId mismatch");
 				} else {
 					unregisterReceivers();
@@ -486,9 +483,9 @@ public class OpenVpnService extends VpnService {
 		mVPNLog.clear();
 	}
 
-	public String dumpLog() {
+	/*public String dumpLog() {
 		return mVPNLog.dump();
-	}
+	}*/
 
 	public String getReconnectName() {
 		VpnProfile p = ProfileManager.get(mUUID);

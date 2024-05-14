@@ -24,6 +24,7 @@
 
 package app.openconnect;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.text.InputType;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
@@ -56,17 +58,17 @@ public class AuthFormHandler extends UserDialog
 
 	public static final String TAG = "OpenConnect";
 
-	private LibOpenConnect.AuthForm mForm;
+	private final LibOpenConnect.AuthForm mForm;
 	private Context mContext;
 	private boolean isOK;
 	private AlertDialog mAlert;
 
 	private CheckBox savePassword = null;
 	private boolean noSave = false;
-	private String formPfx;
+	private final String formPfx;
 
 	private int batchMode = BATCH_MODE_DISABLED;
-	private boolean mAuthgroupSet;
+	private final boolean mAuthgroupSet;
 	private boolean mAllFilled = true;
 
 	private TextView mFirstEmptyText;
@@ -133,7 +135,7 @@ public class AuthFormHandler extends UserDialog
 		try {
 			MessageDigest digest = MessageDigest.getInstance("MD5");
 			StringBuilder sb = new StringBuilder();
-			byte d[] = digest.digest(s.getBytes("UTF-8"));
+			byte[] d = digest.digest(s.getBytes(StandardCharsets.UTF_8));
 			for (byte dd : d) {
 				sb.append(String.format("%02x", dd));
 			}
@@ -156,7 +158,7 @@ public class AuthFormHandler extends UserDialog
 			/* falls through */
 		case LibOpenConnect.OC_FORM_OPT_TEXT:
 		case LibOpenConnect.OC_FORM_OPT_PASSWORD:
-			in.append(":" + Integer.toString(opt.type) + ":");
+			in.append(":").append(opt.type).append(":");
 			in.append(digest(opt.name));
 			in.append(digest(opt.label));
 		}
@@ -172,17 +174,13 @@ public class AuthFormHandler extends UserDialog
 		return "FORMDATA-" + digest(in.toString()) + "-";
 	}
 
-	private void fixPadding(View v) {
-	}
-
-	private LinearLayout.LayoutParams fillWidth =
+	private final LinearLayout.LayoutParams fillWidth =
 			new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 
 	private LinearLayout newHorizLayout(String label) {
 		LinearLayout ll = new LinearLayout(mContext);
 		ll.setOrientation(LinearLayout.HORIZONTAL);
 		ll.setLayoutParams(fillWidth);
-		fixPadding(ll);
 
 		TextView tv = new TextView(mContext);
 		tv.setText(label);
@@ -213,22 +211,25 @@ public class AuthFormHandler extends UserDialog
 		if (opt.type == LibOpenConnect.OC_FORM_OPT_PASSWORD) {
 			tv.setInputType(baseType | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 			tv.setTransformationMethod(PasswordTransformationMethod.getInstance());
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+				tv.setAutofillHints(View.AUTOFILL_HINT_PASSWORD);
+			}
 		} else {
 			tv.setInputType(baseType | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+				tv.setAutofillHints(View.AUTOFILL_HINT_USERNAME);
+			}
 		}
-		tv.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-			@Override
-			public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
-				if (actionId == EditorInfo.IME_ACTION_DONE ||
-						(keyEvent != null &&
-								keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER &&
-								keyEvent.getAction() == KeyEvent.ACTION_DOWN)) {
-					isOK = true;
-					mAlert.dismiss();
-					return true;
-				} else {
-					return false;
-				}
+		tv.setOnEditorActionListener((textView, actionId, keyEvent) -> {
+			if (actionId == EditorInfo.IME_ACTION_DONE ||
+					(keyEvent != null &&
+							keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER &&
+							keyEvent.getAction() == KeyEvent.ACTION_DOWN)) {
+				isOK = true;
+				mAlert.dismiss();
+				return true;
+			} else {
+				return false;
 			}
 		});
 
@@ -292,7 +293,6 @@ public class AuthFormHandler extends UserDialog
 		CheckBox cb = new CheckBox(mContext);
 		cb.setText(R.string.save_password);
 		cb.setChecked(isChecked);
-		fixPadding(cb);
 		return cb;
 	}
 

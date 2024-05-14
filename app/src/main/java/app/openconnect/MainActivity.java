@@ -123,7 +123,9 @@ public class MainActivity extends Activity {
 
 	@Override
 	protected void onPause() {
-		mConn.stopActiveDialog();
+		// It cause active dialog update even then OS trying to autofill.
+		// Probably bad app design.
+		// mConn.stopActiveDialog();
 		mConn.unbind();
 		super.onPause();
 	}
