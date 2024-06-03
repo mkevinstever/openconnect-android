@@ -1,7 +1,7 @@
 name: gradle build
 
 on:
-  # push:
+
   pull_request:
   workflow_dispatch:
 
@@ -10,12 +10,14 @@ jobs:
     name: Build apk
     runs-on: ubuntu-latest
     steps:
+    
       - name: Cancel previous runs
         uses: styfle/cancel-workflow-action@0.12.1
         with:
           access_token: ${{ github.token }}
 
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: set up JDK 17
         uses: actions/setup-java@v4
@@ -30,9 +32,6 @@ jobs:
         uses: gradle/gradle-build-action@v3
         with:
           arguments: build
-          distributions-cache-enabled: true
-          dependencies-cache-enabled: true
-          configuration-cache-enabled: true
 
       - name: Upload build apk
         uses: actions/upload-artifact@v4
