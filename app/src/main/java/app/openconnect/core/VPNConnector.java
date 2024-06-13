@@ -24,8 +24,6 @@
 
 package app.openconnect.core;
 
-import org.infradead.libopenconnect.LibOpenConnect.VPNStats;
-
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -35,6 +33,9 @@ import android.content.ServiceConnection;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
+
+import org.infradead.libopenconnect.LibOpenConnect.VPNStats;
+
 import app.openconnect.R;
 import app.openconnect.core.OpenVpnService.LocalBinder;
 
