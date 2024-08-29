@@ -1,3 +1,7 @@
+Current status: still have bulid error (missing correct openconnect package)
+
+--------------
+
 # OpenConnect for Android
 
 This is a VPN client for Android, based on the Linux build of
