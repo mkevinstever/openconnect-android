@@ -1,4 +1,4 @@
-Current status: still have bulid error (missing correct openconnect package)
+Current status: still under bulid error (missing correct openconnect package)
 
 --------------
 
