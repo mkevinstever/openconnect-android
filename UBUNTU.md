@@ -53,7 +53,7 @@ Use the following commands to accept the license and install the required SDK co
 
 ```bash
 yes | $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME --licenses
-$ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-23"
+$ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-34"
 ```
 
 ### 6. Download and install NDK r25c
