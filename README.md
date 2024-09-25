@@ -3,7 +3,8 @@ Current status: cannot type username and password on connect, but other bugs has
 
 # OpenConnect for Android
 
-![topbanner](screenshots/feature.jpg)
+![topbanner]()
+<img src="screenshots/feature.jpg" alt="feature" style="width:960px;height:540px;">
 
 This is a VPN client for Android, based on the Linux build of [OpenConnect](http://www.infradead.org/openconnect/). Available for Arm and Arm64 platform.
 
@@ -21,11 +22,10 @@ You can build the package and install it on your phone. There are no openconnect
 
 ## Screenshots
 
-![screenshot-0](screenshots/screenshot-0.png)&nbsp;
-![screenshot-1](screenshots/screenshot-1.png)
-
-![screenshot-2](screenshots/screenshot-2.png)&nbsp;
-![screenshot-3](screenshots/screenshot-3.png)
+<img src="screenshots/screenshot-0.png" alt="screenhost0" style="width:320px;height:640px;">&nbsp;
+<img src="screenshots/screenshot-1.png" alt="screenhost0" style="width:320px;height:640px;">
+<img src="screenshots/screenshot-2.png" alt="screenhost0" style="width:320px;height:640px;">&nbsp;
+<img src="screenshots/screenshot-3.png" alt="screenhost0" style="width:320px;height:640px;">
 
 ## Building from Source
 
