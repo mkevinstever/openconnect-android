@@ -1,4 +1,4 @@
-Current status: Cannot build on Github Actions directly, But can build on local environment.
+Current status: libnettle 3.6 is missing.
 ---------------------------
 # OpenConnect for Android
 
