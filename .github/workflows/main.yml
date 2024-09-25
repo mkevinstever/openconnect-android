@@ -23,7 +23,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y git autoconf automake libtool build-essential
-          sudo apt-get install -y gcc make
+          sudo apt-get install -y gcc make pkg-config
 
       - name: Download and install Android SDK
         run: |
