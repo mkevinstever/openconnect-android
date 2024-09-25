@@ -1,7 +1,3 @@
-Current status: Build error persists due to missing the correct openconnect package, but other issues have been resolved.
-
---------------
-
 # OpenConnect for Android
 
 This is a VPN client for Android, based on the Linux build of [OpenConnect](http://www.infradead.org/openconnect/).
