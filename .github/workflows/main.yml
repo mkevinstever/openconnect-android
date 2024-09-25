@@ -72,7 +72,7 @@ jobs:
           cd external
           export PATH=/opt/android-sdk-linux_x86/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
           export NDK=/opt/android-sdk-linux_x86/android-ndk-r25c
-          make
+          make VERBOSE=1
 
       - name: Cache Gradle dependencies
         uses: actions/cache@main
