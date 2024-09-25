@@ -115,4 +115,4 @@ After the build is complete, you can find the generated APK file in the `app/bui
 
 ### 13. Other Words
 
-You May need to change gnutls version and other package version in app/external/openconnect/android/Makefile and fetch.sh for successfully build.
+You May need to change gnutls version and other package version in app/external/openconnect/android/Makefile and fetch.sh at your local environment for successfully build.
