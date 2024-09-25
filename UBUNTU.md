@@ -7,18 +7,18 @@ sudo apt-get update
 sudo apt-get install -y git autoconf automake libtool build-essential gcc make pkg-config gettext
 ```
 
-### 2. Install JDK 11
+### 2. Install JDK 17
 
-You can use either **OpenJDK** or **Temurin** versions. Here are the commands to install OpenJDK 8:
+You can use either **OpenJDK** or **Temurin** versions. Here are the commands to install OpenJDK 17:
 
 ```bash
-sudo apt-get install -y openjdk-11-jdk
+sudo apt-get install -y openjdk-17-jdk
 ```
 
 If you need to set the JAVA_HOME environment variable, you can add it in `~/.bashrc` or `~/.bash_profile`:
 
 ```bash
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
 ```
 
