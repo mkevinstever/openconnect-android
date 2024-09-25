@@ -39,7 +39,7 @@ On the host system, you'll need to install the following:
 - **Development Tools**: Install `gcc`, `make`, and other necessary tools (e.g., Red Hat "Development Tools" or Debian's `build-essential` package).
 - **Version Control and Build Tools**: Install `git`, `autoconf`, `automake`, and `libtool`.
 
-if you use Ubuntu, just need follow this repository UBUNTU.md
+If you use Ubuntu, just need follow this repository UBUNTU.md
 
 ### Compiling the External Dependencies
 
