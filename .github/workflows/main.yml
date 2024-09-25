@@ -19,8 +19,55 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Install required packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git autoconf automake libtool build-essential
+          sudo apt-get install -y gcc make
+
+      - name: Download and install Android SDK
+        run: |
+          mkdir -p $HOME/android-sdk
+          cd $HOME/android-sdk
+          wget https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
+          unzip sdk-tools-linux-3859397.zip
+          rm sdk-tools-linux-3859397.zip
+
+      - name: Set environment variables
+        run: |
+          echo "ANDROID_HOME=$HOME/android-sdk" >> $GITHUB_ENV
+          echo "$ANDROID_HOME/tools" >> $GITHUB_PATH
+          echo "$ANDROID_HOME/platform-tools" >> $GITHUB_PATH
+
+      - name: Install Android SDK components
+        run: |
+          yes | sdkmanager --sdk_root=$ANDROID_HOME --licenses
+          sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-23"
+
+      - name: Download and install NDK r16b
+        run: |
+          cd $HOME
+          wget https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip
+          unzip android-ndk-r16b-linux-x86_64.zip -d /opt/android-sdk-linux_x86/
+          rm android-ndk-r16b-linux-x86_64.zip
+
+      - name: Install Apache Ant
+        run: |
+          wget https://downloads.apache.org//ant/binaries/apache-ant-1.10.9-bin.zip
+          unzip apache-ant-1.10.9-bin.zip -d /opt/
+          echo "/opt/apache-ant-1.10.9/bin" >> $GITHUB_PATH
+          rm apache-ant-1.10.9-bin.zip
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+
+      - name: Initialize and update git submodules
+        run: |
+          git submodule init
+          git submodule update
+
+      - name: Build external dependencies
+        run: make -C external
 
       - name: Cache Gradle dependencies
         uses: actions/cache@main
