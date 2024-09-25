@@ -1,3 +1,6 @@
+Current status: waiting for new code push.
+-------
+
 # OpenConnect for Android
 
 ![topbanner](screenshots/feature.jpg)
