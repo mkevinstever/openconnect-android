@@ -49,7 +49,7 @@ jobs:
         run: |
           cd $HOME
           wget https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
-          unzip android-ndk-r25c-linux.zip -d /opt/
+          unzip android-ndk-r25c-linux.zip -d /opt/android-sdk-linux_x86/
           rm android-ndk-r25c-linux.zip
 
       - name: Install Apache Ant
@@ -70,8 +70,8 @@ jobs:
       - name: Build external dependencies
         run: |
           cd external
-          export PATH=/opt/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
-          export NDK=/opt/android-ndk-r25c
+          export PATH=/opt/android-sdk-linux_x86/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
+          export NDK=/opt/android-sdk-linux_x86/android-ndk-r25c
           make
 
       - name: Cache Gradle dependencies
