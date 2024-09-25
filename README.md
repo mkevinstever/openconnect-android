@@ -3,7 +3,7 @@ Current status: cannot type username and password on connect, but other bugs has
 
 # OpenConnect for Android
 
-<img src="screenshots/feature.jpg" alt="feature" style="width:960px;height:540px;">
+<img src="screenshots/feature.jpg" alt="feature" style="width:960px;height:480px;">
 
 This is a VPN client for Android, based on the Linux build of [OpenConnect](http://www.infradead.org/openconnect/). Available for Arm and Arm64 platform.
 
