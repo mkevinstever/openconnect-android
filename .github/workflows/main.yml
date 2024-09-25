@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@main
 
-      - name: Set up JDK 8  # 使用 JDK 8
+      - name: Set up JDK 8
         uses: actions/setup-java@main
         with:
           java-version: '8'
@@ -69,10 +69,10 @@ jobs:
 
       - name: Build external dependencies
         run: |
-          cd external  # 确保在 external 目录下
+          cd external
           export PATH=/opt/android-sdk-linux_x86/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
           export NDK=/opt/android-sdk-linux_x86/android-ndk-r25c
-          make  # 在这里调用 make，使用正确的 NDK 路径
+          make
 
       - name: Cache Gradle dependencies
         uses: actions/cache@main
