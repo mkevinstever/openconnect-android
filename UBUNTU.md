@@ -112,3 +112,70 @@ Finally, run the Gradle build command in the project root directory:
 ### 12. Output APK
 
 After the build is complete, you can find the generated APK file in the `app/build/outputs/apk` directory.
+
+
+--------------------------------------------------------------------
+
+
+If it says `libnettle 3.6` is missing, you can of course compile and install `libnettle 3.6`.
+
+### Step 1: Install compilation dependencies
+
+Before compiling `libnettle`, you need to make sure that some necessary tools and libraries are installed on your system. Open a terminal and run the following commands:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y build-essential
+```
+
+### Step 2: Download source code
+
+Get the source code of `libnettle 3.6` from the official website or GitHub. You can use the `wget` command to download:
+
+```bash
+wget https://ftp.gnu.org/gnu/nettle/nettle-3.6.tar.gz
+```
+
+### Step 3: Extract the source code
+
+Extract the downloaded tar file:
+
+```bash
+tar -xvzf nettle-3.6.tar.gz
+cd nettle-3.6
+```
+
+### Step 4: Configure the compilation environment
+
+Before compiling, you need to configure the installation path and other options. Run the following command:
+
+```bash
+./configure --prefix=/usr/local
+```
+
+This will install `libnettle` to `/usr/local`.
+
+### Step 5: Compile and Install
+
+Next, compile and install `libnettle`:
+
+```bash
+make
+sudo make install
+```
+
+### Step 6: Verify Installation
+
+You can verify that `libnettle` has been successfully installed using the following command:
+
+```bash
+ldconfig -p | grep nettle
+```
+
+If the installation was successful, you should see output related to `libnettle`.
+
+### Other Notes
+
+- **Permission Issues**: If you encounter permission issues when `make install`, make sure to use `sudo`.
+
+- **Dynamic Link Library Path**: If you get errors that the library cannot be found when using the library, you may need to add `/usr/local/lib` to `/etc/ld.so.conf` and run `sudo ldconfig` to update the dynamic link library cache.
