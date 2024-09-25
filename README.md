@@ -36,7 +36,7 @@ On the host system, you'll need to install the following:
 - **ANDROID_HOME**: Set `$ANDROID_HOME` to point to your Android SDK directory.
 - **Java Development Kit (JDK)**: Install `javac 1.8` or later and make sure it's in your `$PATH`.
 - **Apache Ant**: Install a recent version of Apache Ant and add it to your `$PATH`.
-- **Android SDK Manager**: Use it to install API Level 19.
+- **Android SDK Manager**: Use it to install API Level 23.
 - **NDK r16b**: Unzip this under `/opt/android-sdk-linux_x86/` or any preferred directory.
 - **Development Tools**: Install `gcc`, `make`, and other necessary tools (e.g., Red Hat "Development Tools" or Debian's `build-essential` package).
 - **Version Control and Build Tools**: Install `git`, `autoconf`, `automake`, and `libtool`.
