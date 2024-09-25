@@ -1,5 +1,4 @@
 ## Current status: cannot type username and password on connect, but other bugs has been fixed. You can directly generate APK after download this repository and run ./gradlew assembleDebug 
--------
 
 # OpenConnect for Android
 
