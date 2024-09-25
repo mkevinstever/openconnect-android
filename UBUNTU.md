@@ -7,7 +7,7 @@ sudo apt-get update
 sudo apt-get install -y git autoconf automake libtool build-essential gcc make pkg-config gettext
 ```
 
-### 2. Install JDK 8
+### 2. Install JDK 11
 
 You can use either **OpenJDK** or **Temurin** versions. Here are the commands to install OpenJDK 8:
 
