@@ -12,13 +12,13 @@ sudo apt-get install -y git autoconf automake libtool build-essential gcc make p
 You can use either **OpenJDK** or **Temurin** versions. Here are the commands to install OpenJDK 8:
 
 ```bash
-sudo apt-get install -y openjdk-8-jdk
+sudo apt-get install -y openjdk-11-jdk
 ```
 
 If you need to set the JAVA_HOME environment variable, you can add it in `~/.bashrc` or `~/.bash_profile`:
 
 ```bash
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
 ```
 
