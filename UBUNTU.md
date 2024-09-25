@@ -4,7 +4,7 @@ Run the following commands in the terminal to update the package list and instal
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y git autoconf automake libtool build-essential gcc make
+sudo apt-get install -y git autoconf automake libtool build-essential gcc make pkg-config
 ```
 
 ### 2. Install JDK 8
