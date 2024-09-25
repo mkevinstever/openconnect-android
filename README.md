@@ -1,4 +1,4 @@
-Current status: still under bulid error (missing correct openconnect package), but other bugs have been fixed.
+Current status: Build error persists due to missing the correct openconnect package, but other issues have been resolved.
 
 --------------
 
