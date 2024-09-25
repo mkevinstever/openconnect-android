@@ -191,5 +191,6 @@
     <string name="cert_warning_just_once">Just once</string>
     <string name="cert_warning_always_connect">Always connect</string>
     <string name="vpn_protocol">VPN Protocol</string>
+    <string name="app_version">OpenConnect for Android v%s</string>
 
 </resources>

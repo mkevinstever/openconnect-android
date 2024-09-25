@@ -15,7 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textNoSuggestions" >
+        android:inputType="textNoSuggestions"
+        android:minHeight="48dp">
 
         <requestFocus />
     </EditText>
@@ -36,8 +37,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPassword" >
-    </EditText>
+        android:inputType="textPassword"
+        android:minHeight="48dp"></EditText>
 
     <Space
         android:layout_width="match_parent"

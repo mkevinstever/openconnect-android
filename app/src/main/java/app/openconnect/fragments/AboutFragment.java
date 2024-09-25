@@ -38,30 +38,32 @@ import android.webkit.WebView;
 import android.widget.TextView;
 import app.openconnect.R;
 
-public class AboutFragment extends Fragment  {
+public class AboutFragment extends Fragment {
 
 	public static final String TAG = "OpenConnect";
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-    		Bundle savedInstanceState) {
-    	Activity activity = getActivity();
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+							 Bundle savedInstanceState) {
+		Activity activity = getActivity();
 
-    	View v = inflater.inflate(R.layout.about, container, false);
-    	TextView ver = (TextView) v.findViewById(R.id.version);
+		// Inflate the layout for this fragment
+		View v = inflater.inflate(R.layout.about, container, false);
+		TextView ver = (TextView) v.findViewById(R.id.version);
 
+		// Retrieve and display the application version
 		try {
 			PackageInfo packageinfo = activity.getPackageManager().getPackageInfo(activity.getPackageName(), 0);
-			ver.setText("OpenConnect for Android v" + packageinfo.versionName);
+			ver.setText(getString(R.string.app_version, packageinfo.versionName));
 		} catch (NameNotFoundException e) {
-			Log.e(TAG, "can't retrieve package version");
+			Log.e(TAG, "Can't retrieve package version", e);
 		}
 
-    	WebView contents = (WebView)v.findViewById(R.id.about_contents);
-    	contents.loadUrl("file:///android_asset/about.html");
-    	contents.setBackgroundColor(0);
+		// Load the about contents from the HTML file
+		WebView contents = (WebView) v.findViewById(R.id.about_contents);
+		contents.loadUrl("file:///android_asset/about.html");
+		contents.setBackgroundColor(0); // Set background color to transparent
 
-    	return v;
-    }
-
+		return v;
+	}
 }

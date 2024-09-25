@@ -17,7 +17,8 @@
     <Spinner
         android:id="@+id/vpn_spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:minHeight="48dp" />
 
     <Space
         android:layout_width="match_parent"
@@ -33,8 +34,10 @@
         android:id="@+id/new_vpn_hostname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/add_new_vpn_hint"
         android:inputType="textUri"
-        android:ems="10" >
+        android:minHeight="48dp">
 
         <requestFocus />
     </EditText>

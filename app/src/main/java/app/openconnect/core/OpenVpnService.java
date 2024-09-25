@@ -165,7 +165,7 @@ public class OpenVpnService extends VpnService {
 		intent.setAction(Intent.ACTION_MAIN);
 		intent.addCategory(Intent.CATEGORY_LAUNCHER);
 
-		PendingIntent startLW = null;
+		PendingIntent startLW;
 		startLW = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 		return startLW;
 	}
@@ -178,7 +178,7 @@ public class OpenVpnService extends VpnService {
 		filter.addAction(Intent.ACTION_SCREEN_ON);
 		mDeviceStateReceiver = new DeviceStateReceiver(management, mPrefs);
 
-		// 使用 ContextCompat.registerReceiver 注册接收器，并设置导出标志
+		// Use ContextCompat.registerReceiver to register the receiver and set a export flag
 		ContextCompat.registerReceiver(this, mDeviceStateReceiver, filter, ContextCompat.RECEIVER_NOT_EXPORTED);
 	}
 
@@ -187,7 +187,7 @@ public class OpenVpnService extends VpnService {
 		try {
 			DNSServer = ipInfo.DNS.get(0);
 		} catch (IndexOutOfBoundsException e) {
-			// 空的 DNS 服务器列表
+			// null dns list.
 		} catch (Exception e) {
 			Log.i(TAG, "server DNS IP is bogus, falling back to " + DNSServer + " for KeepAlive", e);
 		}
@@ -200,7 +200,7 @@ public class OpenVpnService extends VpnService {
 		IntentFilter filter = new IntentFilter(KeepAlive.ACTION_KEEPALIVE_ALARM);
 		mKeepAlive = new KeepAlive(idle, DNSServer, mDeviceStateReceiver);
 
-		// 使用 ContextCompat 注册接收器并设置导出标志
+		// Use ContextCompat to register the receiver and set a export flag
 		ContextCompat.registerReceiver(this, mKeepAlive, filter, ContextCompat.RECEIVER_NOT_EXPORTED);
 		mKeepAlive.start(this);
 	}
@@ -227,7 +227,8 @@ public class OpenVpnService extends VpnService {
 		}
 	}
 
-	@Override
+	@SuppressLint("SuspiciousIndentation")
+    @Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 
 		if (intent == null) {

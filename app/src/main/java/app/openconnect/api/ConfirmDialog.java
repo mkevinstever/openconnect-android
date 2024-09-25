@@ -123,4 +123,3 @@ CompoundButton.OnCheckedChangeListener, DialogInterface.OnClickListener {
 	}
 
 }
-

@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/cancel"
+	<item
+		android:id="@+id/cancel"
 		android:icon="@android:drawable/ic_menu_close_clear_cancel"
-		android:showAsAction="ifRoom|withText"
+
 		android:title="@string/disconnect"
-		android:titleCondensed="@string/disconnect" />
+		android:titleCondensed="@string/disconnect"
+		app:showAsAction="ifRoom|withText" />
     <item
         android:id="@+id/clearlog"
         android:icon="@drawable/ic_menu_trash_holo_light"
-        android:showAsAction="never"
-        android:title="@string/clear_log"
-        android:titleCondensed="@string/clear"/>
+		android:title="@string/clear_log"
+		android:titleCondensed="@string/clear"
+		app:showAsAction="never" />
 
 </menu>

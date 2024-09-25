@@ -239,7 +239,7 @@ public class AuthFormHandler extends UserDialog
 	}
 
 	private void spinnerSelect(LibOpenConnect.FormOpt opt, int index) {
-		LibOpenConnect.FormChoice fc = opt.choices.get((int)index);
+		LibOpenConnect.FormChoice fc = opt.choices.get(index);
 		String s = fc.name != null ? fc.name : "";
 
 		if (opt.userData == null) {
@@ -261,7 +261,7 @@ public class AuthFormHandler extends UserDialog
 
 	    for (LibOpenConnect.FormChoice fc : opt.choices) {
 	    	choiceList.add(fc.label);
-	    };
+	    }
 
 		Spinner sp = new Spinner(mContext);
 		sp.setAdapter(adapter);

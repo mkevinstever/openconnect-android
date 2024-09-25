@@ -32,7 +32,7 @@ public abstract class VPNConnector {
 	private Handler mStatsHandler;
 	private Runnable mStatsRunnable;
 	private int mStatsCount = 0;
-	private boolean isReceiverRegistered = false; // 新增字段，跟踪接收器是否已注册
+	private boolean isReceiverRegistered = false; // trace status
 
 	public abstract void onUpdate(OpenVpnService service);
 
@@ -92,7 +92,7 @@ public abstract class VPNConnector {
 		if (mReceiver != null && isReceiverRegistered) {
 			mContext.unregisterReceiver(mReceiver);
 			mReceiver = null;
-			isReceiverRegistered = false; // 更新状态
+			isReceiverRegistered = false; // Update status
 		}
 
 		if (mStatsHandler != null) {

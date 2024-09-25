@@ -16,7 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textMultiLine|textNoSuggestions" >
+        android:hint="@string/enter_token_string"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:minHeight="48dp">
 
         <requestFocus />
     </EditText>
