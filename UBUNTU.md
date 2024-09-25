@@ -112,3 +112,7 @@ Finally, run the Gradle build command in the project root directory:
 ### 12. Output APK
 
 After the build is complete, you can find the generated APK file in the `app/build/outputs/apk` directory.
+
+### 13. Other need to know
+
+1.Move CPU architecture .so file to app -- jniLibs on android studio
