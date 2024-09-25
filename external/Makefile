@@ -8,9 +8,9 @@ LD := $(TOOLCHAIN)/bin/ld
 RANLIB := $(TOOLCHAIN)/bin/llvm-ranlib
 STRIP := $(TOOLCHAIN)/bin/llvm-strip
 
-JAR_DIR := ../app/libs
-JNI_DIR := ../app/src/main/jniLibs
-BIN_DIR := ../app/src/main/assets/raw
+JAR_DIR := $(HOME)/.local/lib
+JNI_DIR := $(HOME)/.local/jniLibs
+BIN_DIR := $(HOME)/.local/assets/raw
 
 ARCH_LIST := arm arm64 x86 x86_64
 
