@@ -1,3 +1,5 @@
+Current status: Cannot build on Github Actions directly, But can build on local environment.
+---------------------------
 # OpenConnect for Android
 
 This is a VPN client for Android, based on the Linux build of [OpenConnect](http://www.infradead.org/openconnect/).
