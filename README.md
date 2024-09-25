@@ -1,4 +1,4 @@
-Current status: waiting for new code push.
+Current status: cannot type username and password on connect, but other bugs has been fixed.
 -------
 
 # OpenConnect for Android
