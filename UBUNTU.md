@@ -106,7 +106,7 @@ make VERBOSE=1
 Finally, run the Gradle build command in the project root directory:
 
 ```bash
-./gradlew build
+./gradlew assembleDebug
 ```
 
 ### 12. Output APK
