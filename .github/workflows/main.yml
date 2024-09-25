@@ -13,10 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@main
 
-      - name: Set up JDK 17
+      - name: Set up JDK 8
         uses: actions/setup-java@main
         with:
-          java-version: '17'
+          java-version: '8'
           distribution: 'temurin'
 
       - name: Install required packages
@@ -42,8 +42,8 @@ jobs:
 
       - name: Install Android SDK components
         run: |
-          yes | JAVA_OPTS="--add-modules=java.xml.bind" $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME --licenses
-          JAVA_OPTS="--add-modules=java.xml.bind" $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-23"
+          yes | $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME --licenses
+          $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-23"
 
       - name: Download and install NDK r16b
         run: |
