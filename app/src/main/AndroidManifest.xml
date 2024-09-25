@@ -5,7 +5,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -23,10 +23,10 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app"
         android:supportsRtl="true">
-        
+
         <activity android:name=".ConnectionEditorActivity" android:exported="true" />
         <activity android:name=".FragActivity" android:exported="true" />
-        
+
         <activity
             android:name=".TokenImportActivity"
             android:exported="true">
@@ -63,7 +63,7 @@
         </activity>
 
         <activity android:name=".FileSelect" android:exported="true" />
-        
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -124,29 +124,29 @@
 
         <receiver
             android:name=".OnBootReceiver"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
-        <provider
-            android:name=".FileProvider"
-            android:authorities="app.openconnect.FileProvider"
-            android:exported="true"
-            android:grantUriPermissions="true"
-            tools:ignore="ExportedContentProvider" />
+    <provider
+        android:name=".FileProvider"
+        android:authorities="app.openconnect.FileProvider"
+        android:exported="true"
+        android:grantUriPermissions="true"
+        tools:ignore="ExportedContentProvider" />
 
-        <meta-data
-            android:name="xposedmodule"
-            android:value="true" />
-        <meta-data
-            android:name="xposeddescription"
-            android:value="Bypass Android VPN confirmation dialog" />
-        <meta-data
-            android:name="xposedminversion"
-            android:value="30" />
+    <meta-data
+        android:name="xposedmodule"
+        android:value="true" />
+    <meta-data
+        android:name="xposeddescription"
+        android:value="Bypass Android VPN confirmation dialog" />
+    <meta-data
+        android:name="xposedminversion"
+        android:value="30" />
 
-    </application>
+</application>
 
-</manifest>
+    </manifest>

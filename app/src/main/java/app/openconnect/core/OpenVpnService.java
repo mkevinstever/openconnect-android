@@ -46,6 +46,7 @@ import app.openconnect.VpnProfile;
 import app.openconnect.api.GrantPermissionsActivity;
 import app.openconnect.core.VPNLog.LogArrayAdapter;
 import app.openconnect.fragments.FeedbackFragment;
+import androidx.core.content.ContextCompat;
 
 import java.util.Date;
 import java.util.Locale;
@@ -170,37 +171,37 @@ public class OpenVpnService extends VpnService {
 	}
 
 	private void registerDeviceStateReceiver(OpenVPNManagement management) {
-		// Registers BroadcastReceiver to track network connection changes.
 		IntentFilter filter = new IntentFilter();
 		filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
 		filter.addAction(DeviceStateReceiver.PREF_CHANGED);
 		filter.addAction(Intent.ACTION_SCREEN_OFF);
 		filter.addAction(Intent.ACTION_SCREEN_ON);
 		mDeviceStateReceiver = new DeviceStateReceiver(management, mPrefs);
-		registerReceiver(mDeviceStateReceiver, filter);
+
+		// 使用 ContextCompat.registerReceiver 注册接收器，并设置导出标志
+		ContextCompat.registerReceiver(this, mDeviceStateReceiver, filter, ContextCompat.RECEIVER_NOT_EXPORTED);
 	}
 
-	private synchronized void registerKeepAlive() {
+	private void registerKeepAlive() {
 		String DNSServer = "8.8.8.8";
 		try {
 			DNSServer = ipInfo.DNS.get(0);
 		} catch (IndexOutOfBoundsException e) {
-			/* empty DNS server list */
+			// 空的 DNS 服务器列表
 		} catch (Exception e) {
 			Log.i(TAG, "server DNS IP is bogus, falling back to " + DNSServer + " for KeepAlive", e);
 		}
 
-		// set to 40% of the server's idle timeout value, to buy a little margin in case
-		// the first 1-2 attempts fail
 		int idle = this.mIdleTimeout;
-		if (idle < 60 || idle > 7200)
-			idle = 1800;
+		if (idle < 60 || idle > 7200) idle = 1800;
 		idle = idle * 4 / 10;
 		Log.d(TAG, "calculated KeepAlive interval: " + idle + " seconds");
 
 		IntentFilter filter = new IntentFilter(KeepAlive.ACTION_KEEPALIVE_ALARM);
 		mKeepAlive = new KeepAlive(idle, DNSServer, mDeviceStateReceiver);
-		registerReceiver(mKeepAlive, filter);
+
+		// 使用 ContextCompat 注册接收器并设置导出标志
+		ContextCompat.registerReceiver(this, mKeepAlive, filter, ContextCompat.RECEIVER_NOT_EXPORTED);
 		mKeepAlive.start(this);
 	}
 
