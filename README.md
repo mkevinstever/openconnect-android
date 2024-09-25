@@ -1,5 +1,3 @@
-#### Current status: libnettle 3.6 is missing.
-
 # OpenConnect for Android
 
 ![topbanner](screenshots/feature.jpg)
