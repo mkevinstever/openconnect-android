@@ -45,12 +45,12 @@ jobs:
           yes | $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME --licenses
           $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-23"
 
-      - name: Download and install NDK r16b
+      - name: Download and install NDK r25c
         run: |
           cd $HOME
-          wget https://dl.google.com/android/repository/android-ndk-r16b-linux-x86_64.zip
-          unzip android-ndk-r16b-linux-x86_64.zip -d /opt/android-sdk-linux_x86/
-          rm android-ndk-r16b-linux-x86_64.zip
+          wget https://dl.google.com/android/repository/android-ndk-r25c-linux-x86_64.zip
+          unzip android-ndk-r25c-linux-x86_64.zip -d /opt/
+          rm android-ndk-r25c-linux-x86_64.zip
 
       - name: Install Apache Ant
         run: |
@@ -68,7 +68,11 @@ jobs:
           git submodule update
 
       - name: Build external dependencies
-        run: make -C external
+        run: |
+          cd external  # 确保在 external 目录下
+          export PATH=/opt/android-sdk-linux_x86/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
+          export NDK=/opt/android-sdk-linux_x86/android-ndk-r25c
+          make  # 在这里调用 make，使用正确的 NDK 路径
 
       - name: Cache Gradle dependencies
         uses: actions/cache@main
