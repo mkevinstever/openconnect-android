@@ -8,12 +8,9 @@
     <!-- <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-    <!-- Copy the <permission> block to your app when using the REMOTE API. Otherwise OpenConnect
-        needs to be installed first -->
     <permission
         android:name="app.openconnect.REMOTE_API"
         android:description="@string/permission_description"
@@ -26,69 +23,47 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app"
         android:supportsRtl="true">
-        <activity android:name=".ConnectionEditorActivity" />
-        <activity android:name=".FragActivity" />
+        
+        <activity android:name=".ConnectionEditorActivity" android:exported="true" />
+        <activity android:name=".FragActivity" android:exported="true" />
+        
         <activity
             android:name=".TokenImportActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
-
-                <data
-                    android:host="127.0.0.1"
-                    android:path="/securid/ctf"
-                    android:scheme="http" />
+                <data android:host="127.0.0.1" android:path="/securid/ctf" android:scheme="http" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
-
-                <data
-                    android:host="rsa.com"
-                    android:path="/android/token/ctf"
-                    android:scheme="http" />
+                <data android:host="rsa.com" android:path="/android/token/ctf" android:scheme="http" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:scheme="com.rsa.securid" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:scheme="com.rsa.securid.iphone" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
-
-                <data
-                    android:host="*"
-                    android:mimeType="*/*"
-                    android:pathPattern=".*\\.sdtid"
-                    android:scheme="file" />
+                <data android:host="*" android:mimeType="*/*" android:pathPattern=".*\\.sdtid" android:scheme="file" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".FileSelect" />
+
+        <activity android:name=".FileSelect" android:exported="true" />
+        
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -97,7 +72,6 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
-
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -118,15 +92,7 @@
                 <action android:name="android.net.VpnService" />
             </intent-filter>
         </service>
-        <!--
-                <service
-                    android:name=".api.ExternalOpenVPNService"
-                    android:permission="app.openconnect.REMOTE_API" >
-                    <intent-filter>
-                        <action android:name="app.openconnect.api.IOpenVPNAPIService" />
-                    </intent-filter>
-                </service>
-        -->
+
         <service
             android:name=".QSTileService"
             android:exported="true"
@@ -146,6 +112,7 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".api.ConfirmDialog"
             android:exported="true"
@@ -169,14 +136,6 @@
             android:exported="true"
             android:grantUriPermissions="true"
             tools:ignore="ExportedContentProvider" />
-
-        <!--
-        <receiver android:name="core.GetRestrictionReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.GET_RESTRICTION_ENTRIES" />
-            </intent-filter>
-        </receiver>
-        -->
 
         <meta-data
             android:name="xposedmodule"
