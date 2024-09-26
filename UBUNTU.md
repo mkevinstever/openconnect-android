@@ -62,13 +62,13 @@ yes | $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME --licenses
 $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-34"
 ```
 
-### 6. Download and install NDK r18
+### 6. Download and install NDK r19c
 
 ```bash
 cd $HOME
-wget https://dl.google.com/android/repository/android-ndk-r18-linux.zip
-unzip android-ndk-r18-linux.zip -d /opt/android-sdk-linux_x86/
-rm android-ndk-r18-linux.zip
+wget https://dl.google.com/android/repository/android-ndk-r19c-linux-x86_64.zip
+unzip android-ndk-r19c-linux.zip -d /opt/android-sdk-linux_x86/
+rm android-ndk-r19c-linux.zip
 ```
 
 ### 7. Install Apache Ant
