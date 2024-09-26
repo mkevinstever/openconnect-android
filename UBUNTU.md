@@ -62,13 +62,13 @@ yes | $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME --licenses
 $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-23"
 ```
 
-### 6. Download and install NDK r25c
+### 6. Download and install NDK r21b
 
 ```bash
 cd $HOME
-wget https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
-unzip android-ndk-r25c-linux.zip -d /opt/android-sdk-linux_x86/
-rm android-ndk-r25c-linux.zip
+wget https://dl.google.com/android/repository/android-ndk-r21b-linux-x86_64.zip
+unzip android-ndk-r21b-linux-x86_64.zip -d /opt/android-sdk-linux_x86/
+rm android-ndk-r21b-linux-x86_64.zip
 ```
 
 ### 7. Install Apache Ant
