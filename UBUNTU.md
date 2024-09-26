@@ -81,7 +81,15 @@ source ~/.bashrc
 rm apache-ant-1.10.14-bin.tar.bz2
 ```
 
-### 8. Give gradlew executable permissions
+### 8. Download this project
+
+```bash
+cd $HOME
+git clone https://github.com/mkevinstever/openconnect-android.git
+cd openconnect-android
+```
+
+### 9. Give gradlew executable permissions
 
 If you have a `gradlew` file in your project, make sure it has executable permissions:
 
@@ -89,14 +97,14 @@ If you have a `gradlew` file in your project, make sure it has executable permis
 chmod +x gradlew
 ```
 
-### 9. Initialize and update Git submodules
+### 10. Initialize and update Git submodules
 
 ```bash
 git clone https://gitlab.com/openconnect/openconnect external/openconnect
 git clone https://github.com/cernekee/stoken external/stoken
 ```
 
-### 10. Build external dependencies
+### 11. Build external dependencies
 
 Go to the `external` directory, set the path to the NDK and run `make`:
 
@@ -107,7 +115,7 @@ export NDK=/opt/android-sdk-linux_x86/android-ndk-r25c
 make VERBOSE=1
 ```
 
-### 11. Build APK
+### 12. Build APK
 
 Finally, run the Gradle build command in the project root directory:
 
@@ -115,11 +123,11 @@ Finally, run the Gradle build command in the project root directory:
 ./gradlew assembleDebug
 ```
 
-### 12. Output APK
+### 13. Output APK
 
 After the build is complete, you can find the generated APK file in the `app/build/outputs/apk` directory.
 
-### 13. Other need to know
+### 14. Other need to know
 
 1. Move CPU architecture .so file to app -- jniLibs on android studio.
 2. Move curl-bin run_pie to app -- assets and put it to suitable folder.
