@@ -121,5 +121,5 @@ After the build is complete, you can find the generated APK file in the `app/bui
 
 ### 13. Other need to know
 
-1.Move CPU architecture .so file to app -- jniLibs on android studio
+1.Move CPU architecture .so file to app -- jniLibs on android studio.
 2.Move curl-bin run_pie to app -- assets and put it to suitable folder.
