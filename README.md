@@ -1,4 +1,4 @@
-#### Current status: cannot type username and password on connect(won't pop-up UI for let user type these), but other bugs has been fixed. You can directly generate APK after download this repository and run ./gradlew assembleDebug
+### Current status: cannot type username and password on connect(won't pop-up UI for let user type these), but other bugs has been fixed. You can directly generate APK after download this repository and run ./gradlew assembleDebug
 
 # OpenConnect for Android
 
