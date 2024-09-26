@@ -1,4 +1,4 @@
-### Current status: cannot type username and password on connect(won't pop-up UI for let user type these), but other bugs has been fixed. You can directly generate APK after download this repository and run ./gradlew assembleDebug
+### Current status: cannot type username and password on connect(won't pop-up UI for let user type these), but other bugs has been fixed.
 
 # OpenConnect for Android
 
@@ -40,7 +40,7 @@ On the host system, you'll need to install the following:
 - **Development Tools**: Install `gcc`, `make`, and other necessary tools (e.g., Red Hat "Development Tools" or Debian's `build-essential` package).
 - **Version Control and Build Tools**: Install `git`, `autoconf`, `automake`, and `libtool`.
 
-If you use Ubuntu, just need follow this repository UBUNTU.md
+If you use Ubuntu, just need follow this instructions on repository UBUNTU.md
 
 ### Compiling the External Dependencies
 
