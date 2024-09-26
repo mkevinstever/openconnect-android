@@ -4,7 +4,7 @@ Run the following commands in the terminal to update the package list and instal
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y git autoconf automake libtool build-essential gcc make pkg-config gettext unzip
+sudo apt-get install -y git autoconf automake libtool build-essential gcc make pkg-config gettext unzip vim
 ```
 
 ### 2. Install JDK 17
@@ -62,13 +62,13 @@ yes | $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME --licenses
 $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "platforms;android-34"
 ```
 
-### 6. Download and install NDK r18b
+### 6. Download and install NDK r25c
 
 ```bash
 cd $HOME
-wget https://dl.google.com/android/repository/android-ndk-r18b-linux-x86_64.zip
-unzip android-ndk-r18b-linux-x86_64.zip -d /opt/android-sdk-linux_x86/
-rm android-ndk-r18b-linux-x86_64.zip
+wget https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
+unzip android-ndk-r25c-linux.zip -d /opt/android-sdk-linux_x86/
+rm android-ndk-r25c-linux.zip
 ```
 
 ### 7. Install Apache Ant
@@ -102,8 +102,8 @@ Go to the `external` directory, set the path to the NDK and run `make`:
 
 ```bash
 cd external
-export PATH=/opt/android-sdk-linux_x86/android-ndk-r18b/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
-export NDK=/opt/android-sdk-linux_x86/android-ndk-r18b
+export PATH=/opt/android-sdk-linux_x86/android-ndk-r25c/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
+export NDK=/opt/android-sdk-linux_x86/android-ndk-r25c
 make VERBOSE=1
 ```
 
