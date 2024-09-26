@@ -67,8 +67,8 @@ $ANDROID_HOME/tools/bin/sdkmanager --sdk_root=$ANDROID_HOME "platform-tools" "pl
 ```bash
 cd $HOME
 wget https://dl.google.com/android/repository/android-ndk-r19c-linux-x86_64.zip
-unzip android-ndk-r19c-linux.zip -d /opt/android-sdk-linux_x86/
-rm android-ndk-r19c-linux.zip
+unzip android-ndk-r19c-linux-x86_64.zip -d /opt/android-sdk-linux_x86/
+rm android-ndk-r19c-linux-x86_64.zip
 ```
 
 ### 7. Install Apache Ant
