@@ -1,7 +1,7 @@
 NDK := /opt/android-sdk-linux_x86/android-ndk-r18b
 TOOLCHAIN := $(NDK)/toolchains/llvm/prebuilt/linux-x86_64
 
-TARGETS := arm arm64 x86 x86_64
+TARGETS := arm arm64
 
 AR := $(TOOLCHAIN)/bin/llvm-ar
 LD := $(TOOLCHAIN)/bin/ld
@@ -12,7 +12,7 @@ JAR_DIR := ../app/libs
 JNI_DIR := ../app/src/main/jniLibs
 BIN_DIR := ../app/src/main/assets/raw
 
-ARCH_LIST := arm arm64 x86 x86_64
+ARCH_LIST := arm arm64
 
 # The __ANDROID_API__ version needs to stay in sync with
 # openconnect/android/Makefile
@@ -29,20 +29,6 @@ API_arm64 := 26
 CFLAGS_arm64 := -Os -D__ANDROID_API__=$(API_arm64)
 CC_arm64 := $(TOOLCHAIN)/bin/$(TRIPLET_arm64)$(API_arm64)-clang
 CCX_arm64 := $(TOOLCHAIN)/bin/$(TRIPLET_arm64)$(API_arm64)-clang++
-
-NDK_ARCH_x86 := x86
-TRIPLET_x86 := i686-linux-android
-API_x86 := 23
-CFLAGS_x86 := -Os -D__ANDROID_API__=$(API_x86)
-CC_x86 := $(TOOLCHAIN)/bin/$(TRIPLET_x86)$(API_x86)-clang
-CCX_x86 := $(TOOLCHAIN)/bin/$(TRIPLET_x86)$(API_x86)-clang++
-
-NDK_ARCH_x86_64 := x86_64
-TRIPLET_x86_64 := x86_64-linux-android
-API_x86_64 := 23
-CFLAGS_x86_64 := -Os -D__ANDROID_API__=$(API_x86_64)
-CC_x86_64 := $(TOOLCHAIN)/bin/$(TRIPLET_x86_64)$(API_x86_64)-clang
-CCX_x86_64 := $(TOOLCHAIN)/bin/$(TRIPLET_x86_64)$(API_x86_64)-clang++
 
 JAR_LIST := openconnect-wrapper.jar stoken-wrapper.jar
 PKG_LIST := curl
