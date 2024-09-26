@@ -105,7 +105,7 @@ public class OpenConnectManagementThread implements Runnable, OpenVPNManagement 
     }
 
     private void putStringPref(final String key, String value) {
-    	mPrefs.edit().putString(key, value).commit();
+    	mPrefs.edit().putString(key, value).apply();
     }
 
     private String formatTime(long in) {

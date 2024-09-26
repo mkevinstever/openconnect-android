@@ -32,7 +32,6 @@ import android.util.Log;
 import app.openconnect.api.GrantPermissionsActivity;
 import app.openconnect.core.ProfileManager;
 
-
 public class OnBootReceiver extends BroadcastReceiver {
 
 	public static final String TAG = "OpenConnect";
@@ -40,16 +39,15 @@ public class OnBootReceiver extends BroadcastReceiver {
 	// Debug: am broadcast -a android.intent.action.BOOT_COMPLETED
 	@Override
 	public void onReceive(Context context, Intent intent) {
-
 		final String action = intent.getAction();
 
-		if(Intent.ACTION_BOOT_COMPLETED.equals(action)) {
+		if (Intent.ACTION_BOOT_COMPLETED.equals(action)) {
 			VpnProfile bootProfile = ProfileManager.getOnBootProfile();
-			if(bootProfile != null) {
-				Log.i(TAG, "starting profile '" + bootProfile.getName() + "' on boot");
+			if (bootProfile != null) {
+				Log.i(TAG, "Starting profile '" + bootProfile.getName() + "' on boot");
 				launchVPN(bootProfile, context);
 			} else {
-				Log.d(TAG, "no boot profile configured");
+				Log.d(TAG, "No boot profile configured");
 			}
 		}
 	}
@@ -59,7 +57,7 @@ public class OnBootReceiver extends BroadcastReceiver {
 		startVpnIntent.putExtra(context.getPackageName() + GrantPermissionsActivity.EXTRA_UUID,
 				profile.getUUIDString());
 		startVpnIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		//startVpnIntent.putExtra(LogWindow.EXTRA_HIDELOG, true);
+		// startVpnIntent.putExtra(LogWindow.EXTRA_HIDELOG, true);
 
 		context.startActivity(startVpnIntent);
 	}

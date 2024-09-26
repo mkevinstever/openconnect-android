@@ -26,6 +26,8 @@
 package app.openconnect;
 
 import app.openconnect.core.X509Utils;
+
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -93,7 +95,8 @@ public class FileSelectLayout extends LinearLayout implements OnClickListener {
 		return mData;
 	}
 
-	public void setData(String data, Context c) {
+	@SuppressLint("SuspiciousIndentation")
+    public void setData(String data, Context c) {
 		mData = data;
 		if(data==null) { 
 			mDataView.setText(mFragment.getString(R.string.no_data));

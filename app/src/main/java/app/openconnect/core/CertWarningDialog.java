@@ -31,24 +31,24 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 
 public class CertWarningDialog extends UserDialog
-	implements DialogInterface.OnClickListener, DialogInterface.OnDismissListener {
+		implements DialogInterface.OnClickListener, DialogInterface.OnDismissListener {
 
 	public static final int RESULT_NO = 0;
 	public static final int RESULT_ONCE = 1;
 	public static final int RESULT_ALWAYS = 2;
 
-	public String mHostname;
-	public String mCertSHA1;
-	public String mReason;
+	private String mHostname;
+	private String mCertSHA1;
+	private String mReason;
 
 	private int mAccept = RESULT_NO;
-	private AlertDialog mAlert;
+	private AlertDialog mAlertDialog;
 
 	public CertWarningDialog(SharedPreferences prefs, String hostname, String certSHA1, String reason) {
 		super(prefs);
-		mHostname = hostname;
-		mCertSHA1 = certSHA1;
-		mReason = reason;
+		this.mHostname = hostname;
+		this.mCertSHA1 = certSHA1;
+		this.mReason = reason;
 	}
 
 	@Override
@@ -59,40 +59,50 @@ public class CertWarningDialog extends UserDialog
 	@Override
 	public void onStart(Context context) {
 		super.onStart(context);
-		mAlert = new AlertDialog.Builder(context)
-			.setTitle(R.string.cert_warning_title)
-			.setMessage(context.getString(R.string.cert_warning_message,
-					mHostname, mReason, mCertSHA1))
-			.setPositiveButton(R.string.cert_warning_always_connect, this)
-			.setNeutralButton(R.string.cert_warning_just_once, this)
-			.setNegativeButton(R.string.no, this)
-			.create();
-		mAlert.setOnDismissListener(this);
-		mAlert.show();
+
+		if (context != null) {
+			mAlertDialog = new AlertDialog.Builder(context)
+					.setTitle(R.string.cert_warning_title)
+					.setMessage(context.getString(R.string.cert_warning_message, mHostname, mReason, mCertSHA1))
+					.setPositiveButton(R.string.cert_warning_always_connect, this)
+					.setNeutralButton(R.string.cert_warning_just_once, this)
+					.setNegativeButton(R.string.no, this)
+					.create();
+			mAlertDialog.setOnDismissListener(this);
+			mAlertDialog.show();
+		}
 	}
 
 	@Override
 	public void onDismiss(DialogInterface dialog) {
-		// catches Pos/Neg/Neutral and Back button presses
 		finish(mAccept);
-		mAlert = null;
+		mAlertDialog = null;
 	}
 
 	@Override
 	public void onClick(DialogInterface dialog, int which) {
-		if (which == DialogInterface.BUTTON_POSITIVE) {
-			mAccept = RESULT_ALWAYS;
-		} else if (which == DialogInterface.BUTTON_NEUTRAL) {
-			mAccept = RESULT_ONCE;
+		switch (which) {
+			case DialogInterface.BUTTON_POSITIVE:
+				mAccept = RESULT_ALWAYS;
+				break;
+			case DialogInterface.BUTTON_NEUTRAL:
+				mAccept = RESULT_ONCE;
+				break;
+			case DialogInterface.BUTTON_NEGATIVE:
+				mAccept = RESULT_NO;
+				break;
+			default:
+				break;
 		}
 	}
 
 	@Override
 	public void onStop(Context context) {
 		super.onStop(context);
-		finish(null);
-		if (mAlert != null) {
-			mAlert.dismiss();
+		if (mAlertDialog != null) {
+			mAlertDialog.dismiss();
 		}
+
+		finish(mAccept != RESULT_NO ? mAccept : null);
 	}
 }

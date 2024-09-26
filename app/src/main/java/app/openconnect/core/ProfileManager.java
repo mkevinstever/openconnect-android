@@ -173,7 +173,7 @@ public class ProfileManager {
 
 		String uuid = UUID.randomUUID().toString();
 		SharedPreferences p = mContext.getSharedPreferences(getPrefsName(uuid), Activity.MODE_PRIVATE);
-		p.edit().putString("server_address", hostname).commit();
+		p.edit().putString("server_address", hostname).apply();
 
 		VpnProfile profile = new VpnProfile(p, uuid, profName);
 		mProfiles.put(uuid, profile);
@@ -268,14 +268,14 @@ public class ProfileManager {
 		mLastConnectedVpn = null;
 		mAppPrefs.edit()
 			.remove(ON_BOOT_PROFILE)
-			.commit();
+			.apply();
 	}
 
 	public synchronized static void setConnectedVpnProfile(VpnProfile connectedProfile) {
 		mLastConnectedVpn = connectedProfile;
 		mAppPrefs.edit()
 			.putString(ON_BOOT_PROFILE, connectedProfile.getUUIDString())
-			.commit();
+			.apply();
 	}
 
 	public synchronized static VpnProfile getOnBootProfile() {

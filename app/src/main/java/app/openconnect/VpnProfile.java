@@ -98,7 +98,3 @@ public class VpnProfile implements Comparable<VpnProfile> {
 		return getName().toUpperCase(def).compareTo(arg0.getName().toUpperCase(def));
 	}
 }
-
-
-
-

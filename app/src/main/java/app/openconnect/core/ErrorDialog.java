@@ -30,7 +30,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 
 public class ErrorDialog extends UserDialog
-	implements DialogInterface.OnClickListener, DialogInterface.OnDismissListener {
+		implements DialogInterface.OnClickListener, DialogInterface.OnDismissListener {
 
 	public String mTitle;
 	public String mMessage;
@@ -47,31 +47,32 @@ public class ErrorDialog extends UserDialog
 	public void onStart(Context context) {
 		super.onStart(context);
 		mAlert = new AlertDialog.Builder(context)
-			.setTitle(mTitle)
-			.setMessage(mMessage)
-			.setPositiveButton(android.R.string.ok, this)
-			.create();
+				.setTitle(mTitle)
+				.setMessage(mMessage)
+				.setPositiveButton(android.R.string.ok, this)  // Use OK button to dismiss the dialog
+				.setCancelable(false)  // Prevent dismissing by tapping outside
+				.create();
 		mAlert.setOnDismissListener(this);
 		mAlert.show();
 	}
 
 	@Override
 	public void onDismiss(DialogInterface dialog) {
-		// catches Pos/Neg/Neutral and Back button presses
+		// Finish the dialog when dismissed
 		finish(true);
-		mAlert = null;
 	}
 
 	@Override
 	public void onClick(DialogInterface dialog, int which) {
+		// No additional action needed on click, simply dismiss
 	}
 
 	@Override
 	public void onStop(Context context) {
 		super.onStop(context);
-		finish(null);
 		if (mAlert != null) {
 			mAlert.dismiss();
 		}
+		finish(null);
 	}
 }

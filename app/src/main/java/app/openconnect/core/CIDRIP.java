@@ -106,5 +106,4 @@ class CIDRIP{
 	public long getInt() {
 		return getInt(mIp);
 	}
-	
 }

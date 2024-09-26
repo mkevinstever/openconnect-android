@@ -55,10 +55,7 @@ public class APIVpnProfile implements Parcelable {
 	public void writeToParcel(Parcel dest, int flags) {
 		dest.writeString(mUUID);
 		dest.writeString(mName);
-		if(mUserEditable)
-			dest.writeInt(0);
-		else
-			dest.writeInt(1);
+		dest.writeInt(mUserEditable ? 1 : 0); // 修改这里
 	}
 
 	public static final Parcelable.Creator<APIVpnProfile> CREATOR
@@ -71,6 +68,4 @@ public class APIVpnProfile implements Parcelable {
 			return new APIVpnProfile[size];
 		}
 	};
-
-
 }

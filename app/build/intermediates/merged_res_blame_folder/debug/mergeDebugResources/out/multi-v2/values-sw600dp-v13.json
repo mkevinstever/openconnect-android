@@ -21,7 +21,17 @@
                     }
                 },
                 {
-                    "source": "/home/guy/.gradle/caches/transforms-4/d45a9769a6c8ef2d06fbce68a0d8cc60/transformed/material-1.9.0/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "source": "/home/guy/.gradle/caches/transforms-4/a7ffad0afa96d638ea75020ce20cb0b7/transformed/appcompat-1.5.0/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,124,193,263,337,413,472,543",
+                        "endColumns": "68,68,69,73,75,58,70,67",
+                        "endOffsets": "119,188,258,332,408,467,538,606"
+                    }
+                },
+                {
+                    "source": "/home/guy/.gradle/caches/transforms-4/87ea16b399313ab7a47dc80207cb2fe8/transformed/material-1.9.0/res/values-sw600dp-v13/values-sw600dp-v13.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
@@ -37,16 +47,6 @@
                         "endLines": "10,11,12,13,14,15,17,18,19,20,22,26",
                         "endColumns": "59,69,70,71,57,57,10,63,55,58,62,10",
                         "endOffsets": "666,736,807,879,937,995,1104,1168,1224,1283,1388,1560"
-                    }
-                },
-                {
-                    "source": "/home/guy/.gradle/caches/transforms-4/d755b04187e0ece25c82674267d6f1b8/transformed/appcompat-1.5.0/res/values-sw600dp-v13/values-sw600dp-v13.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,124,193,263,337,413,472,543",
-                        "endColumns": "68,68,69,73,75,58,70,67",
-                        "endOffsets": "119,188,258,332,408,467,538,606"
                     }
                 }
             ]

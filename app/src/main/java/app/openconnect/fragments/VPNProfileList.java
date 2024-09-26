@@ -120,13 +120,17 @@ public class VPNProfileList extends ListFragment {
 	public void onPause() {
 		super.onPause();
 		if (mDialog != null) {
-			FragCache.put("VPNProfileList", "mDialogEntry", mDialogEntry.getText().toString());
+			if (mDialogEntry != null) {
+				FragCache.put("VPNProfileList", "mDialogEntry", mDialogEntry.getText().toString());
+			} else {
+				FragCache.put("VPNProfileList", "mDialogEntry", "");
+			}
 			mDialog.dismiss();
 			mDialog = null;
 		} else {
-			FragCache.put("VPNProfileList", "mDialogEntry", null);
 		}
 	}
+
 
 	class MiniImageGetter implements ImageGetter {
 		@Override

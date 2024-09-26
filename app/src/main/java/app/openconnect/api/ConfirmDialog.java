@@ -121,5 +121,4 @@ CompoundButton.OnCheckedChangeListener, DialogInterface.OnClickListener {
 			finish();
 		}
 	}
-
 }

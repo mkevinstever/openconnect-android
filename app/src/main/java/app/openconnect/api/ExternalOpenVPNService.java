@@ -55,28 +55,22 @@ public class ExternalOpenVPNService extends Service {
 	private static final int SEND_TOALL = 0;
 
 	final RemoteCallbackList<IOpenVPNStatusCallback> mCallbacks =
-			new RemoteCallbackList<IOpenVPNStatusCallback>();
+			new RemoteCallbackList<>();
 
 	private OpenVpnService mService;
-	private ExternalAppDatabase mExtAppDb;	
-
+	private ExternalAppDatabase mExtAppDb;
 
 	private ServiceConnection mConnection = new ServiceConnection() {
-
-
 		@Override
-		public void onServiceConnected(ComponentName className,
-				IBinder service) {
-			// We've bound to LocalService, cast the IBinder and get LocalService instance
+		public void onServiceConnected(ComponentName className, IBinder service) {
 			LocalBinder binder = (LocalBinder) service;
 			mService = binder.getService();
 		}
 
 		@Override
 		public void onServiceDisconnected(ComponentName arg0) {
-			mService =null;
+			mService = null;
 		}
-
 	};
 
 	@Override
@@ -86,17 +80,16 @@ public class ExternalOpenVPNService extends Service {
 
 		Intent intent = new Intent(getBaseContext(), OpenVpnService.class);
 		intent.setAction(OpenVpnService.START_SERVICE);
-
 		bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
 		mHandler.setService(this);
 	}
 
 	private final IOpenVPNAPIService.Stub mBinder = new IOpenVPNAPIService.Stub() {
 
-        private void checkOpenVPNPermission()  throws SecurityRemoteException{
+		private void checkOpenVPNPermission() throws SecurityRemoteException {
 			PackageManager pm = getPackageManager();
 
-			for (String apppackage:mExtAppDb.getExtAppList()) {
+			for (String apppackage : mExtAppDb.getExtAppList()) {
 				ApplicationInfo app;
 				try {
 					app = pm.getApplicationInfo(apppackage, 0);
@@ -104,11 +97,9 @@ public class ExternalOpenVPNService extends Service {
 						return;
 					}
 				} catch (NameNotFoundException e) {
-					// App not found. Remove it from the list
 					mExtAppDb.removeApp(apppackage);
 					e.printStackTrace();
 				}
-
 			}
 			throw new SecurityException("Unauthorized OpenVPN API Caller");
 		}
@@ -117,79 +108,34 @@ public class ExternalOpenVPNService extends Service {
 		public List<APIVpnProfile> getProfiles() throws RemoteException {
 			checkOpenVPNPermission();
 
-			List<APIVpnProfile> profiles = new LinkedList<APIVpnProfile>();
-
-			for(VpnProfile vp: ProfileManager.getProfiles())
-				profiles.add(new APIVpnProfile(vp.getUUIDString(),vp.mName,true));
-
+			List<APIVpnProfile> profiles = new LinkedList<>();
+			for (VpnProfile vp : ProfileManager.getProfiles()) {
+				profiles.add(new APIVpnProfile(vp.getUUIDString(), vp.mName, true));
+			}
 			return profiles;
 		}
 
 		@Override
 		public void startProfile(String profileUUID) throws RemoteException {
 			checkOpenVPNPermission();
-
-			/*
-			Intent shortVPNIntent = new Intent(Intent.ACTION_MAIN);
-			shortVPNIntent.setClass(getBaseContext(),app.openconnect.LaunchVPN.class);
-			shortVPNIntent.putExtra(app.openconnect.LaunchVPN.EXTRA_KEY,profileUUID);
-			shortVPNIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			startActivity(shortVPNIntent);
-			*/
+			// Implement startProfile logic if needed
 		}
 
 		public void startVPN(String inlineconfig) throws RemoteException {
 			checkOpenVPNPermission();
-
-			/*
-			ConfigParser cp = new ConfigParser();
-			try {
-				cp.parseConfig(new StringReader(inlineconfig));
-				VpnProfile vp = cp.convertProfile();
-				if(vp.checkProfile(getApplicationContext()) != R.string.no_error_found)
-					throw new RemoteException(getString(vp.checkProfile(getApplicationContext())));
-
-
-				ProfileManager.setTemporaryProfile(vp);
-				//VPNLaunchHelper.startOpenVpn(vp, getBaseContext());
-
-
-			} catch (IOException e) {
-				throw new RemoteException(e.getMessage());
-			} catch (ConfigParseError e) {
-				throw new RemoteException(e.getMessage());
-			}
-			*/
+			// Implement startVPN logic if needed
 		}
 
 		@Override
 		public boolean addVPNProfile(String name, String config) throws RemoteException {
 			checkOpenVPNPermission();
-
-			/*
-			ConfigParser cp = new ConfigParser();
-			try {
-				cp.parseConfig(new StringReader(config));
-				VpnProfile vp = cp.convertProfile();
-				vp.mName = name;
-				ProfileManager pm = ProfileManager.getInstance(getBaseContext());
-				pm.addProfile(vp);
-			} catch (IOException e) {
-				e.printStackTrace();
-				return false;
-			} catch (ConfigParseError e) {
-				e.printStackTrace();
-				return false;
-			}
-			*/
-
+			// Implement addVPNProfile logic if needed
 			return true;
 		}
 
-
 		@Override
 		public Intent prepare(String packagename) {
-			if (new ExternalAppDatabase(ExternalOpenVPNService.this).isAllowed(packagename))
+			if (mExtAppDb.isAllowed(packagename))
 				return null;
 
 			Intent intent = new Intent();
@@ -200,48 +146,40 @@ public class ExternalOpenVPNService extends Service {
 		@Override
 		public Intent prepareVPNService() throws RemoteException {
 			checkOpenVPNPermission();
-
-			if(VpnService.prepare(ExternalOpenVPNService.this)==null)
+			if (VpnService.prepare(ExternalOpenVPNService.this) == null)
 				return null;
-			else 
-				return new  Intent(getBaseContext(), GrantPermissionsActivity.class);
+			else
+				return new Intent(getBaseContext(), GrantPermissionsActivity.class);
 		}
 
-
 		@Override
-		public void registerStatusCallback(IOpenVPNStatusCallback cb)
-				throws RemoteException {
+		public void registerStatusCallback(IOpenVPNStatusCallback cb) throws RemoteException {
 			checkOpenVPNPermission();
-
 			if (cb != null) {
 				cb.newStatus(mMostRecentState.vpnUUID, mMostRecentState.state,
 						mMostRecentState.logmessage, mMostRecentState.level.name());
 				mCallbacks.register(cb);
 			}
-
-
 		}
 
 		@Override
-		public void unregisterStatusCallback(IOpenVPNStatusCallback cb)
-				throws RemoteException {
+		public void unregisterStatusCallback(IOpenVPNStatusCallback cb) throws RemoteException {
 			checkOpenVPNPermission();
-
-			if (cb != null)  
+			if (cb != null)
 				mCallbacks.unregister(cb);
 		}
 
 		@Override
 		public void disconnect() throws RemoteException {
 			checkOpenVPNPermission();
-			if(mService != null)
+			if (mService != null)
 				mService.stopVPN();
 		}
 	};
 
+	private UpdateMessage mMostRecentState;
 
-
-	private UpdateMessage mMostRecentState;	@Override
+	@Override
 	public IBinder onBind(Intent intent) {
 		return mBinder;
 	}
@@ -268,47 +206,39 @@ public class ExternalOpenVPNService extends Service {
 
 	private static final OpenVPNServiceHandler mHandler = new OpenVPNServiceHandler();
 
-
 	static class OpenVPNServiceHandler extends Handler {
-		WeakReference<ExternalOpenVPNService> service= null;
+		WeakReference<ExternalOpenVPNService> service = null;
 
-		private void setService(ExternalOpenVPNService eos)
-		{
-			service = new WeakReference<ExternalOpenVPNService>(eos);
+		private void setService(ExternalOpenVPNService eos) {
+			service = new WeakReference<>(eos);
 		}
 
-		@Override public void handleMessage(Message msg) {
-
+		@Override
+		public void handleMessage(Message msg) {
 			RemoteCallbackList<IOpenVPNStatusCallback> callbacks;
 			switch (msg.what) {
-			case SEND_TOALL:
-				if(service ==null || service.get() == null)
-					return;
+				case SEND_TOALL:
+					if (service == null || service.get() == null)
+						return;
 
-				callbacks = service.get().mCallbacks;
+					callbacks = service.get().mCallbacks;
 
-
-				// Broadcast to all clients the new value.
-				final int N = callbacks.beginBroadcast();
-				for (int i=0; i<N; i++) {
-					try {
-						sendUpdate(callbacks.getBroadcastItem(i),(UpdateMessage) msg.obj);
-					} catch (RemoteException e) {
-						// The RemoteCallbackList will take care of removing
-						// the dead object for us.
+					final int N = callbacks.beginBroadcast();
+					for (int i = 0; i < N; i++) {
+						try {
+							sendUpdate(callbacks.getBroadcastItem(i), (UpdateMessage) msg.obj);
+						} catch (RemoteException e) {
+							// The RemoteCallbackList will take care of removing
+							// the dead object for us.
+						}
 					}
-				}
-				callbacks.finishBroadcast();
-				break;
+					callbacks.finishBroadcast();
+					break;
 			}
 		}
 
-		private void sendUpdate(IOpenVPNStatusCallback broadcastItem,
-				UpdateMessage um) throws RemoteException 
-				{
+		private void sendUpdate(IOpenVPNStatusCallback broadcastItem, UpdateMessage um) throws RemoteException {
 			broadcastItem.newStatus(um.vpnUUID, um.state, um.logmessage, um.level.name());
-				}
+		}
 	}
-
-
 }

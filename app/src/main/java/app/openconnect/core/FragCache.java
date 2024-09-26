@@ -24,30 +24,26 @@
 
 package app.openconnect.core;
 
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class FragCache {
 
-	private static HashMap<String,String> mCache;
+	private static ConcurrentHashMap<String, String> mCache;
 
 	public static synchronized void init() {
-		mCache = new HashMap<String,String>();
+		mCache = new ConcurrentHashMap<>();
 	}
 
-	private static String hashCode(String UUID, String key) {
-		StringBuilder sb = new StringBuilder();
-		if (UUID != null) {
-			sb.append(UUID.hashCode());
-		}
-		sb.append(".");
-		if (key != null) {
-			sb.append(key.hashCode());
-		}
-		return sb.toString();
+	private static String generateCacheKey(String UUID, String key) {
+		return UUID + "." + key; // 使用更简单的字符串连接
 	}
 
 	public static synchronized String get(String UUID, String key) {
-		return mCache.get(hashCode(UUID, key));
+		// 检查是否为null
+		if (key == null) {
+			throw new IllegalArgumentException("Key cannot be null");
+		}
+		return mCache.get(generateCacheKey(UUID, key));
 	}
 
 	public static String get(String key) {
@@ -55,11 +51,14 @@ public class FragCache {
 	}
 
 	public static synchronized void put(String UUID, String key, String value) {
-		mCache.put(hashCode(UUID, key), value);
+
+		if (key == null) {
+			throw new IllegalArgumentException("Key cannot be null");
+		}
+		mCache.put(generateCacheKey(UUID, key), value);
 	}
 
 	public static void put(String key, String value) {
 		put(null, key, value);
 	}
-
 }

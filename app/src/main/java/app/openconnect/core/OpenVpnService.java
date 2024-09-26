@@ -388,47 +388,61 @@ public class OpenVpnService extends VpnService {
 
 	/* called from the VPN thread; blocks until user responds */
 	public Object promptUser(UserDialog dialog) {
-		Object ret;
-
-		ret = dialog.earlyReturn();
+		if (dialog == null) {
+			throw new IllegalArgumentException("UserDialog cannot be null.");
+		}
+		Object ret = dialog.earlyReturn();
 		if (ret != null) {
 			return ret;
 		}
-
 		setDialog(dialog);
 		wakeUpActivity();
-		ret = mDialog.waitForResponse();
+		try {
+			ret = mDialog.waitForResponse();
+		} catch (Exception e) {
+			Log.e("promptUser", "Error waiting for user response", e);
 
-		setDialog(null);
+			ret = getDefaultResponse();
+		} finally {
+			setDialog(null);
+		}
 		return ret;
 	}
 
+	private Object getDefaultResponse() {
+		return null;
+	}
+
+
 	public synchronized void threadDone() {
 		final int startId = mStartId;
-
 		Log.i(TAG, "VPN thread has terminated");
 		mVPN = null;
 		mHandler.post(new Runnable() {
-
 			@Override
 			public void run() {
 				if (!stopSelfResult(startId)) {
-					Log.w(TAG, "not stopping service due to startId mismatch");
+					Log.w(TAG, "Not stopping service due to startId mismatch");
 				} else {
 					unregisterReceivers();
+					Log.i(TAG, "Receivers unregistered successfully");
 				}
 			}
 		});
 	}
 
+
 	public synchronized void setConnectionState(int state) {
 		if (state == OpenConnectManagementThread.STATE_CONNECTED &&
 				mConnectionState != OpenConnectManagementThread.STATE_CONNECTED) {
 			startTime = new Date();
+			Log.i(TAG, "Connection started at: " + startTime);
 		}
 		mConnectionState = state;
 		wakeUpActivity();
+		Log.d(TAG, "Connection state changed to: " + state);
 	}
+
 
 	public synchronized int getConnectionState() {
 		return mConnectionState;

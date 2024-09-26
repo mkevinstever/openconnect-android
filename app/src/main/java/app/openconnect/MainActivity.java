@@ -56,7 +56,6 @@ public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-
 		super.onCreate(savedInstanceState);
 
 		mTabsActive = false;
@@ -65,7 +64,9 @@ public class MainActivity extends Activity {
 		}
 
 		mBar = getActionBar();
-		mBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		if (mBar != null) {
+			mBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		}
 
 		mTabList.add(new TabContainer(0, R.string.vpn_list_title, new VPNProfileList()));
 		mTabList.add(new TabContainer(1, R.string.log, new LogFragment()));
@@ -123,10 +124,11 @@ public class MainActivity extends Activity {
 
 	@Override
 	protected void onPause() {
-		// It cause active dialog update even then OS trying to autofill.
-		// Probably bad app design.
+		// It causes active dialog update even when the OS is trying to autofill.
 		// mConn.stopActiveDialog();
-		mConn.unbind();
+		if (mConn != null) {
+			mConn.unbind();
+		}
 		super.onPause();
 	}
 
@@ -146,9 +148,9 @@ public class MainActivity extends Activity {
 
 			if (idx == mLastTab) {
 				getFragmentManager().beginTransaction()
-					.setCustomAnimations(R.animator.fade_in, R.animator.fade_out)
-					.replace(android.R.id.content, mFragment)
-					.commit();
+						.setCustomAnimations(R.animator.fade_in, R.animator.fade_out)
+						.replace(android.R.id.content, mFragment)
+						.commit();
 				mActive = true;
 			} else {
 				mActive = false;

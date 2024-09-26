@@ -166,9 +166,18 @@ public class AuthFormHandler extends UserDialog
 	}
 
 	private String getFormPrefix(LibOpenConnect.AuthForm form) {
+		if (form == null || form.opts == null) {
+			Log.e(TAG, "getFormPrefix: AuthForm or opts is null");
+			return "";
+		}
+
 		StringBuilder in = new StringBuilder();
 
 		for (LibOpenConnect.FormOpt opt : form.opts) {
+			if (opt == null) {
+				Log.e(TAG, "getFormPrefix: FormOpt is null");
+				continue;
+			}
 			in.append(getOptDigest(opt));
 		}
 		return "FORMDATA-" + digest(in.toString()) + "-";
@@ -190,10 +199,16 @@ public class AuthFormHandler extends UserDialog
 	}
 
 	private LinearLayout newTextBlank(LibOpenConnect.FormOpt opt, String defval) {
+		if (opt == null) {
+			Log.e(TAG, "newTextBlank: FormOpt is null");
+			return null;
+		}
+
 		LinearLayout ll = newHorizLayout(opt.label);
 
 		TextView tv = new EditText(mContext);
 		tv.setLayoutParams(fillWidth);
+
 		if (defval == null) {
 			defval = opt.value != null ? opt.value : "";
 		}
@@ -297,67 +312,94 @@ public class AuthFormHandler extends UserDialog
 	}
 
 	private void saveAndStore() {
+		if (mForm == null || mForm.opts == null) {
+			Log.w("saveAndStore", "mForm or mForm.opts is null, aborting save operation.");
+			return;
+		}
+
 		for (LibOpenConnect.FormOpt opt : mForm.opts) {
 			if ((opt.flags & LibOpenConnect.OC_FORM_OPT_IGNORE) != 0) {
 				continue;
 			}
+
 			switch (opt.type) {
-			case LibOpenConnect.OC_FORM_OPT_TEXT: {
-				TextView tv = (TextView)opt.userData;
-				String s = tv.getText().toString();
-				if (!noSave) {
-					setStringPref(formPfx + getOptDigest(opt), s);
+				case LibOpenConnect.OC_FORM_OPT_TEXT:
+				case LibOpenConnect.OC_FORM_OPT_PASSWORD: {
+					saveTextOption(opt);
+					break;
 				}
-				opt.value = s;
-				break;
+				case LibOpenConnect.OC_FORM_OPT_SELECT: {
+					saveSelectOption(opt);
+					break;
+				}
+				default:
+					Log.w("saveAndStore", "Unknown option type: " + opt.type);
+					break;
 			}
-			case LibOpenConnect.OC_FORM_OPT_PASSWORD: {
-				TextView tv = (TextView)opt.userData;
-				String s = tv.getText().toString();
+		}
+	}
+
+	private void saveTextOption(LibOpenConnect.FormOpt opt) {
+		if (opt.userData instanceof TextView) {
+			TextView tv = (TextView) opt.userData;
+			String s = tv.getText().toString();
+			if (opt.type == LibOpenConnect.OC_FORM_OPT_PASSWORD) {
 				if (savePassword != null) {
 					boolean checked = savePassword.isChecked();
 					setStringPref(formPfx + getOptDigest(opt), checked ? s : "");
 					setStringPref(formPfx + "savePass", checked ? "true" : "false");
 				}
-				opt.value = s;
-				break;
+			} else if (!noSave) {
+				setStringPref(formPfx + getOptDigest(opt), s);
 			}
-			case LibOpenConnect.OC_FORM_OPT_SELECT:
-				String s = (String)opt.userData;
-				if (!noSave) {
-					setStringPref(formPfx + getOptDigest(opt), s);
-					if ("group_list".equals(opt.name)) {
-						setStringPref("authgroup", s);
-					}
-				}
-				opt.value = s;
-				break;
-			}
+			opt.value = s;
+		} else {
+			Log.w("saveTextOption", "userData is not a TextView for option: " + opt.name);
 		}
 	}
+
+	private void saveSelectOption(LibOpenConnect.FormOpt opt) {
+		if (opt.userData instanceof String) {
+			String s = (String) opt.userData;
+			if (!noSave) {
+				setStringPref(formPfx + getOptDigest(opt), s);
+				if ("group_list".equals(opt.name)) {
+					setStringPref("authgroup", s);
+				}
+			}
+			opt.value = s;
+		} else {
+			Log.w("saveSelectOption", "userData is not a String for option: " + opt.name);
+		}
+	}
+
 
 	// If the user had saved a preferred authgroup, submit a NEWGROUP request before rendering the form
 	public boolean setAuthgroup() {
 		LibOpenConnect.FormOpt opt = mForm.authgroupOpt;
 		if (opt == null) {
+			Log.e(TAG, "setAuthgroup: authgroupOpt is null");
 			return false;
 		}
 
 		String authgroup = getStringPref("authgroup");
-		if (authgroup.equals("")) {
+		if (authgroup == null || authgroup.equals("")) {
+			Log.e(TAG, "setAuthgroup: authgroup is null or empty");
 			return false;
 		}
 
-		LibOpenConnect.FormChoice selected = opt.choices.get(mForm.authgroupSelection);
-		if (mAuthgroupSet || authgroup.equals(selected.name)) {
+		LibOpenConnect.FormChoice selected = opt.choices != null && opt.choices.size() > 0 ? opt.choices.get(mForm.authgroupSelection) : null;
+		if (selected != null && (mAuthgroupSet || authgroup.equals(selected.name))) {
 			// already good to go
 			opt.value = authgroup;
 			return false;
 		}
-		for (LibOpenConnect.FormChoice ch : opt.choices) {
-			if (authgroup.equals(ch.name)) {
-				opt.value = authgroup;
-				return true;
+		if (opt.choices != null) {
+			for (LibOpenConnect.FormChoice ch : opt.choices) {
+				if (authgroup.equals(ch.name)) {
+					opt.value = authgroup;
+					return true;
+				}
 			}
 		}
 		Log.w(TAG, "saved authgroup '" + authgroup + "' not present in " + opt.name + " dropdown");
@@ -375,23 +417,23 @@ public class AuthFormHandler extends UserDialog
 		// do a quick pass through all prompts to see if we can fill in the
 		// answers without bugging the user
 		for (LibOpenConnect.FormOpt opt : mForm.opts) {
-			if ((opt.flags & LibOpenConnect.OC_FORM_OPT_IGNORE) != 0) {
+			if (opt == null || (opt.flags & LibOpenConnect.OC_FORM_OPT_IGNORE) != 0) {
 				continue;
 			}
 			switch (opt.type) {
-			case LibOpenConnect.OC_FORM_OPT_PASSWORD:
-			case LibOpenConnect.OC_FORM_OPT_TEXT:
-				String defval = noSave ? "" : getStringPref(formPfx + getOptDigest(opt));
-				if (defval.equals("")) {
-					return null;
-				}
-				opt.value = defval;
-				break;
-			case LibOpenConnect.OC_FORM_OPT_SELECT:
-				if (opt.value == null) {
-					return null;
-				}
-				break;
+				case LibOpenConnect.OC_FORM_OPT_PASSWORD:
+				case LibOpenConnect.OC_FORM_OPT_TEXT:
+					String defval = noSave ? "" : getStringPref(formPfx + getOptDigest(opt));
+					if (defval.equals("")) {
+						return null;
+					}
+					opt.value = defval;
+					break;
+				case LibOpenConnect.OC_FORM_OPT_SELECT:
+					if (opt.value == null) {
+						return null;
+					}
+					break;
 			}
 		}
 		return LibOpenConnect.OC_FORM_RESULT_OK;
@@ -407,55 +449,60 @@ public class AuthFormHandler extends UserDialog
 		float scale = mContext.getResources().getDisplayMetrics().density;
 		LinearLayout v = new LinearLayout(mContext);
 		v.setOrientation(LinearLayout.VERTICAL);
-		v.setPadding((int)(14*scale), (int)(2*scale), (int)(10*scale), (int)(2*scale));
+		v.setPadding((int)(14 * scale), (int)(2 * scale), (int)(10 * scale), (int)(2 * scale));
 
 		boolean hasPassword = false, hasUserOptions = false;
 		String defval;
 
 		mFirstText = mFirstEmptyText = null;
-		for (LibOpenConnect.FormOpt opt : mForm.opts) {
-			if ((opt.flags & LibOpenConnect.OC_FORM_OPT_IGNORE) != 0) {
-				continue;
-			}
-			switch (opt.type) {
-			case LibOpenConnect.OC_FORM_OPT_PASSWORD:
-				hasPassword = true;
-				/* falls through */
-			case LibOpenConnect.OC_FORM_OPT_TEXT:
-				defval = noSave ? "" : getStringPref(formPfx + getOptDigest(opt));
-				if (defval.equals("")) {
-					if (opt.value != null && !opt.value.equals("")) {
-						defval = opt.value;
-					} else {
-						/* note that this gets remembered across redraws */
-						mAllFilled = false;
-					}
-				}
-				v.addView(newTextBlank(opt, defval));
-				hasUserOptions = true;
-				break;
-			case LibOpenConnect.OC_FORM_OPT_SELECT:
-				if (opt.choices.size() == 0) {
-					break;
-				}
 
-				int selection = 0;
-				if (opt == mForm.authgroupOpt) {
-					selection = mForm.authgroupSelection;
-				} else {
-					// do any servers actually use non-authgroup downdowns?
-					defval = noSave ? "" : getStringPref(formPfx + getOptDigest(opt));
-					for (int i = 0; i < opt.choices.size(); i++) {
-						if (opt.choices.get(i).name.equals(defval)) {
-							selection = i;
-						}
-					}
+
+		if (mForm != null && mForm.opts != null) {
+			for (LibOpenConnect.FormOpt opt : mForm.opts) {
+				if ((opt.flags & LibOpenConnect.OC_FORM_OPT_IGNORE) != 0) {
+					continue;
 				}
-				v.addView(newDropdown(opt, selection));
-				hasUserOptions = true;
-				break;
+				switch (opt.type) {
+					case LibOpenConnect.OC_FORM_OPT_PASSWORD:
+						hasPassword = true;
+
+					case LibOpenConnect.OC_FORM_OPT_TEXT:
+						defval = noSave ? "" : getStringPref(formPfx + getOptDigest(opt));
+
+						if (defval == null || defval.equals("")) {
+							defval = (opt.value != null && !opt.value.equals("")) ? opt.value : "";
+							mAllFilled = false;
+						}
+						v.addView(newTextBlank(opt, defval));
+						hasUserOptions = true;
+						break;
+					case LibOpenConnect.OC_FORM_OPT_SELECT:
+						if (opt.choices.size() == 0) {
+							break;
+						}
+
+						int selection = 0;
+						if (opt == mForm.authgroupOpt) {
+							selection = mForm.authgroupSelection;
+						} else {
+							defval = noSave ? "" : getStringPref(formPfx + getOptDigest(opt));
+							for (int i = 0; i < opt.choices.size(); i++) {
+								if (opt.choices.get(i).name.equals(defval)) {
+									selection = i;
+									break;
+								}
+							}
+						}
+						v.addView(newDropdown(opt, selection));
+						hasUserOptions = true;
+						break;
+					default:
+						Log.w("AuthFormHandler", "Unknown option type: " + opt.type);
+						break;
+				}
 			}
 		}
+
 		if (hasPassword && !noSave) {
 			boolean savePass = !getStringPref(formPfx + "savePass").equals("false");
 			savePassword = newSavePasswordView(savePass);
@@ -468,7 +515,7 @@ public class AuthFormHandler extends UserDialog
 		}
 
 		if ((batchMode == BATCH_MODE_EMPTY_ONLY && mAllFilled) ||
-			batchMode == BATCH_MODE_ENABLED || !hasUserOptions) {
+				batchMode == BATCH_MODE_ENABLED || !hasUserOptions) {
 			saveAndStore();
 			finish(LibOpenConnect.OC_FORM_RESULT_OK);
 			return;
@@ -482,9 +529,10 @@ public class AuthFormHandler extends UserDialog
 				.create();
 		mAlert.setOnDismissListener(h);
 
+
 		if (mForm.message != null) {
-			// Truncate long messages so they don't ruin the dialog
 			String s = mForm.message.trim();
+
 			if (s.length() > 128) {
 				s = s.substring(0, 128);
 			}
@@ -492,6 +540,7 @@ public class AuthFormHandler extends UserDialog
 				mAlert.setMessage(s);
 			}
 		}
+
 
 		mAlert.show();
 
@@ -506,7 +555,9 @@ public class AuthFormHandler extends UserDialog
 		super.onStop(context);
 		if (mAlert != null) {
 			saveAndStore();
-			mAlert.dismiss();
+			if (mAlert.isShowing()) {
+				mAlert.dismiss();
+			}
 			mAlert = null;
 		}
 	}

@@ -25,7 +25,6 @@
 package app.openconnect;
 
 import java.util.Map;
-import java.util.Objects;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -34,21 +33,32 @@ import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 
 public class ClearPasswordPreference extends DialogPreference {
+
     public ClearPasswordPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
     @Override
     protected void onDialogClosed(boolean positiveResult) {
+        // If user confirmed the action
         if (positiveResult) {
-            PreferenceManager mPrefs = getPreferenceManager();
-            SharedPreferences sp = mPrefs.getSharedPreferences();
-            for (Map.Entry<String,?> entry : Objects.requireNonNull(sp).getAll().entrySet()) {
-            	String key = entry.getKey();
-            	if (key.startsWith("FORMDATA-") || key.startsWith("ACCEPTED-CERT-")) {
-            		sp.edit().putString(key, "").apply();
-            	}
+            clearSensitivePreferences();
+        }
+    }
+
+    private void clearSensitivePreferences() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        // Iterate over all entries in SharedPreferences and clear sensitive ones
+        for (Map.Entry<String, ?> entry : sharedPreferences.getAll().entrySet()) {
+            String key = entry.getKey();
+            if (isSensitiveKey(key)) {
+                sharedPreferences.edit().remove(key).apply(); // Use remove instead of putString with empty value
             }
         }
+    }
+
+    private boolean isSensitiveKey(String key) {
+        return key.startsWith("FORMDATA-") || key.startsWith("ACCEPTED-CERT-");
     }
 }

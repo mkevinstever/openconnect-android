@@ -45,7 +45,6 @@ public class ProxyDetection {
 		if (proxylist != null) {
 			for (Proxy proxy : proxylist) {
 				SocketAddress addr = proxy.address();
-
 				if (addr != null) {
 					// use proxy.type() to check proxy type.
 					return proxy;

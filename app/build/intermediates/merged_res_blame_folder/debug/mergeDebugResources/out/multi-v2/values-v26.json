@@ -4,7 +4,7 @@
             "outputFile": "app.openconnect.app-mergeDebugResources-30:/values-v26/values-v26.xml",
             "map": [
                 {
-                    "source": "/home/guy/.gradle/caches/transforms-4/d755b04187e0ece25c82674267d6f1b8/transformed/appcompat-1.5.0/res/values-v26/values-v26.xml",
+                    "source": "/home/guy/.gradle/caches/transforms-4/a7ffad0afa96d638ea75020ce20cb0b7/transformed/appcompat-1.5.0/res/values-v26/values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",

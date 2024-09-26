@@ -256,4 +256,4 @@ public class KeepAlive extends BroadcastReceiver {
 			});
 		}
 	}
-};
+}

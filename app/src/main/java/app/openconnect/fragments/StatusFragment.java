@@ -51,15 +51,15 @@ public class StatusFragment extends Fragment {
 	private CommonMenu mDropdown;
 	private Button mDisconnectButton;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-    		Bundle savedInstanceState) {
-    	super.onCreateView(inflater, container, savedInstanceState);
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+							 Bundle savedInstanceState) {
+		super.onCreateView(inflater, container, savedInstanceState);
 
-    	mView = inflater.inflate(R.layout.status, container, false);
-    	mDisconnectButton = (Button)mView.findViewById(R.id.disconnect_button);
+		mView = inflater.inflate(R.layout.status, container, false);
+		mDisconnectButton = (Button) mView.findViewById(R.id.disconnect_button);
 
-    	mDisconnectButton.setOnClickListener(new OnClickListener() {
+		mDisconnectButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				if (mConn.service.getConnectionState() ==
@@ -69,17 +69,17 @@ public class StatusFragment extends Fragment {
 					mConn.service.stopVPN();
 				}
 			}
-    	});
+		});
 
-    	mConn = new VPNConnector(getActivity(), false) {
+		mConn = new VPNConnector(getActivity(), false) {
 			@Override
 			public void onUpdate(OpenVpnService service) {
 				updateUI(service);
 			}
-    	};
+		};
 
-    	return mView;
-    }
+		return mView;
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -101,32 +101,31 @@ public class StatusFragment extends Fragment {
 		}
 	}
 
-    @Override
-    public void onDestroyView() {
-    	mConn.unbind();
-    	super.onDestroyView();
-    }
+	@Override
+	public void onDestroyView() {
+		mConn.unbind();
+		super.onDestroyView();
+	}
 
-    private void writeStatusField(int id, int header_res, String value) {
-    	String html = "<b>" + getString(header_res) + "</b><br>" + value;
-    	TextView tv = (TextView)mView.findViewById(id);
-    	tv.setText(Html.fromHtml(html));
-    }
+	private void writeStatusField(int id, int header_res, String value) {
+		String html = "<b>" + getString(header_res) + "</b><br>" + value;
+		TextView tv = (TextView) mView.findViewById(id);
+		tv.setText(Html.fromHtml(html));
+	}
 
-    private void updateUI(OpenVpnService service) {
+	private void updateUI(OpenVpnService service) {
 		int state = service.getConnectionState();
 		int visibility = View.INVISIBLE;
 
 		if (state == OpenConnectManagementThread.STATE_CONNECTED) {
-
 			visibility = View.VISIBLE;
-
 			String s = getString(R.string.state_connected_to, service.profile.getName());
+
 			if (s.length() < 25) {
 				writeStatusField(R.id.connection_state, R.string.netstatus, s);
 			} else {
 				writeStatusField(R.id.connection_state, R.string.netstatus,
-					service.getConnectionStateName());
+						service.getConnectionStateName());
 			}
 			writeStatusField(R.id.connection_time, R.string.uptime,
 					OpenVpnService.formatElapsedTime(service.startTime.getTime()));
@@ -142,6 +141,7 @@ public class StatusFragment extends Fragment {
 			writeStatusField(R.id.rx, R.string.rx, getString(R.string.oneway_bytecount,
 					OpenVpnService.humanReadableByteCount(mConn.deltaStats.rxBytes, true),
 					OpenVpnService.humanReadableByteCount(mConn.newStats.rxBytes, false)));
+
 			writeStatusField(R.id.server_name, R.string.server_name, service.serverName);
 
 			LibOpenConnect.IPInfo ip = service.ipInfo;
@@ -153,17 +153,14 @@ public class StatusFragment extends Fragment {
 			} else {
 				writeStatusField(R.id.local_ip4, R.string.local_ip4, dis);
 			}
-
 			writeStatusField(R.id.local_ip6, R.string.local_ip6, ip.netmask6 != null ? ip.netmask6 : dis);
 		} else {
-			writeStatusField(R.id.connection_state, R.string.netstatus,
-					service.getConnectionStateName());
+			writeStatusField(R.id.connection_state, R.string.netstatus, service.getConnectionStateName());
 		}
 
 		mView.findViewById(R.id.connection_rows).setVisibility(visibility);
 		mView.findViewById(R.id.connection_time).setVisibility(visibility);
 
-		// Check explicitly for "disconnected" so the user can cancel connections-in-progress
 		if (state == OpenConnectManagementThread.STATE_DISCONNECTED) {
 			String profileName = service.getReconnectName();
 			if (profileName != null) {
@@ -176,5 +173,5 @@ public class StatusFragment extends Fragment {
 			mDisconnectButton.setVisibility(View.VISIBLE);
 			mDisconnectButton.setText(R.string.disconnect);
 		}
-    }
+	}
 }

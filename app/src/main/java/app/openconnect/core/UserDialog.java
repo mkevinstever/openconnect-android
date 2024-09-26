@@ -1,35 +1,13 @@
-/*
- * Copyright (c) 2013, Kevin Cernekee
- * All rights reserved.
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,
- * USA.
- *
- * In addition, as a special exception, the copyright holders give
- * permission to link the code of portions of this program with the
- * OpenSSL library.
- */
-
 package app.openconnect.core;
 
 import java.util.HashMap;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+/**
+ * Abstract class for handling user dialogs and managing user preferences.
+ */
 public abstract class UserDialog {
 	public static final String TAG = "OpenConnect";
 
@@ -37,24 +15,28 @@ public abstract class UserDialog {
 	private boolean mDialogUp;
 	protected SharedPreferences mPrefs;
 
-	private static final HashMap<String,DeferredPref> mDeferredPrefs = new HashMap<String,DeferredPref>();
+	// Use ConcurrentHashMap for thread-safe operations if multiple threads access deferred prefs
+	private static final HashMap<String, DeferredPref> mDeferredPrefs = new HashMap<>();
 
 	public UserDialog(SharedPreferences prefs) {
 		mPrefs = prefs;
 	}
 
+	// Wait for user response
 	public Object waitForResponse() {
-		while (mResult == null) {
-			synchronized (this) {
+		synchronized (this) {
+			while (mResult == null) {
 				try {
 					this.wait();
 				} catch (InterruptedException e) {
+					Thread.currentThread().interrupt(); // Restore interrupted status
 				}
 			}
 		}
 		return mResult;
 	}
 
+	// Finish the dialog and notify waiting threads
 	protected void finish(Object result) {
 		synchronized (this) {
 			if (mDialogUp) {
@@ -64,6 +46,7 @@ public abstract class UserDialog {
 		}
 	}
 
+	// Abstract class for deferred preferences
 	private abstract class DeferredPref {
 		protected SharedPreferences mPrefs;
 		protected String mKey;
@@ -75,6 +58,7 @@ public abstract class UserDialog {
 		public abstract void commit();
 	}
 
+	// Deferred string preference implementation
 	private class DeferredStringPref extends DeferredPref {
 		public String value;
 
@@ -84,10 +68,11 @@ public abstract class UserDialog {
 		}
 
 		public void commit() {
-			mPrefs.edit().putString(mKey, value).commit();
+			mPrefs.edit().putString(mKey, value).apply(); // Use apply() for async commit
 		}
 	}
 
+	// Deferred boolean preference implementation
 	private class DeferredBooleanPref extends DeferredPref {
 		public boolean value;
 
@@ -97,14 +82,16 @@ public abstract class UserDialog {
 		}
 
 		public void commit() {
-			mPrefs.edit().putBoolean(mKey, value).commit();
+			mPrefs.edit().putBoolean(mKey, value).apply(); // Use apply() for async commit
 		}
 	}
 
+	// Clear all deferred preferences
 	public static void clearDeferredPrefs() {
 		mDeferredPrefs.clear();
 	}
 
+	// Write all deferred preferences to SharedPreferences
 	public static void writeDeferredPrefs() {
 		for (DeferredPref p : mDeferredPrefs.values()) {
 			p.commit();
@@ -112,49 +99,43 @@ public abstract class UserDialog {
 		mDeferredPrefs.clear();
 	}
 
+	// Set a deferred string preference
 	protected void setStringPref(String key, String value) {
 		mDeferredPrefs.put(key, new DeferredStringPref(mPrefs, key, value));
 	}
 
+	// Get a string preference, with error handling
 	protected String getStringPref(String key) {
-		try {
-			DeferredStringPref p = (DeferredStringPref)mDeferredPrefs.get(key);
-			return p.value;
-		} catch (ClassCastException e) {
-		} catch (NullPointerException e) {
-		}
-		return mPrefs.getString(key, "");
+		DeferredStringPref p = (DeferredStringPref) mDeferredPrefs.get(key);
+		return (p != null) ? p.value : mPrefs.getString(key, "");
 	}
 
+	// Set a deferred boolean preference
 	protected void setBooleanPref(String key, boolean value) {
 		mDeferredPrefs.put(key, new DeferredBooleanPref(mPrefs, key, value));
 	}
 
+	// Get a boolean preference, with error handling
 	protected boolean getBooleanPref(String key) {
-		try {
-			DeferredBooleanPref p = (DeferredBooleanPref)mDeferredPrefs.get(key);
-			return p.value;
-		} catch (ClassCastException e) {
-		} catch (NullPointerException e) {
-		}
-		return mPrefs.getBoolean(key, false);
+		DeferredBooleanPref p = (DeferredBooleanPref) mDeferredPrefs.get(key);
+		return (p != null) ? p.value : mPrefs.getBoolean(key, false);
 	}
 
-	// Render the dialog; called from the UI thread.  May not block. 
+	// Start rendering the dialog
 	public void onStart(Context context) {
 		mDialogUp = true;
-		Log.d(TAG, "rendering user dialog");
+		Log.d(TAG, "Rendering user dialog");
 	}
 
-	// Dismiss a pending dialog, e.g. if the Activity is being torn down.  Called from the UI thread.
+	// Stop rendering the dialog
 	public void onStop(Context context) {
 		mDialogUp = false;
-		Log.d(TAG, "tearing down user dialog");
+		Log.d(TAG, "Tearing down user dialog");
 	}
 
-	// See if the dialog can be safely skipped based on SharedPreferences.  Called from the background thread.
+	// Determine if the dialog can be skipped based on preferences
 	public Object earlyReturn() {
-		Log.d(TAG, (mResult == null ? "not skipping" : "skipping") + " user dialog");
+		Log.d(TAG, (mResult == null ? "Not skipping" : "Skipping") + " user dialog");
 		return mResult;
 	}
 }

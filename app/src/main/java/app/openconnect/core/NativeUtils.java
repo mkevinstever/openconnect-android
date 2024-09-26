@@ -25,8 +25,10 @@
 
 package app.openconnect.core;
 
+import android.annotation.SuppressLint;
 import java.security.InvalidKeyException;
 
+@SuppressLint("SuspiciousIndentation")
 public class NativeUtils {
 	public static native byte[] rsasign(byte[] input,int pkey) throws InvalidKeyException;
 	static native void jniclose(int fdint);

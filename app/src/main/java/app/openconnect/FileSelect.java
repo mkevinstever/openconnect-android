@@ -66,38 +66,38 @@ public class FileSelect extends Activity {
 	private boolean mForceInline;
 	private boolean mShowClear;
 	private boolean mBase64Encode;
-	
-		
+
+
 	public void onCreate(Bundle savedInstanceState)
 	{
-		super.onCreate(savedInstanceState); 
+		super.onCreate(savedInstanceState);
 		setContentView(R.layout.file_dialog);
 
 		mData = getIntent().getStringExtra(START_DATA);
 		if(mData==null)
 			mData=Environment.getExternalStorageDirectory().getPath();
-		
+
 		String title = getIntent().getStringExtra(WINDOW_TITLE);
 		int titleId = getIntent().getIntExtra(WINDOW_TITLE, 0);
-		if(titleId!=0) 
+		if(titleId!=0)
 			title =getString(titleId);
 		if(title!=null)
 			setTitle(title);
-		
+
 		mNoInline = getIntent().getBooleanExtra(NO_INLINE_SELECTION, false);
 		mForceInline = getIntent().getBooleanExtra(FORCE_INLINE_SELECTION, false);
 		mShowClear = getIntent().getBooleanExtra(SHOW_CLEAR_BUTTON, false);
 		mBase64Encode = getIntent().getBooleanExtra(DO_BASE64_ENCODE, false);
-		
+
 		ActionBar bar = getActionBar();
-		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS); 
+		bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		fileExplorerTab = bar.newTab().setText(R.string.file_explorer_tab);
-		inlineFileTab = bar.newTab().setText(R.string.inline_file_tab); 
+		inlineFileTab = bar.newTab().setText(R.string.inline_file_tab);
 
 		mFSFragment = new FileSelectionFragment();
 		fileExplorerTab.setTabListener(new MyTabsListener<FileSelectionFragment>(this, mFSFragment));
 		bar.addTab(fileExplorerTab);
-		
+
 		if(!mNoInline) {
 			mInlineFragment = new InlineFileTab();
 			inlineFileTab.setTabListener(new MyTabsListener<InlineFileTab>(this, mInlineFragment));
@@ -109,9 +109,9 @@ public class FileSelect extends Activity {
 			mFSFragment.setNoInLine();
 		}
 
-		
+
 	}
-	
+
 	public boolean showClear() {
 		if(mData == null || mData.equals(""))
 			return false;
@@ -138,7 +138,7 @@ public class FileSelect extends Activity {
 				// If it exists, simply attach it in order to show it
 				ft.attach(mFragment);
 			}
-		}	        
+		}
 
 		@Override
 		public void onTabUnselected(Tab tab, FragmentTransaction ft) {
@@ -150,7 +150,7 @@ public class FileSelect extends Activity {
 
 		}
 	}
-	
+
 	public void importFile(String path) {
 		File ifile = new File(path);
 		String error = null;
@@ -158,7 +158,7 @@ public class FileSelect extends Activity {
 		try {
 
 			String data = "";
-			
+
 			if (ifile.length() > MAX_FILE_LEN) {
 				error = getString(R.string.file_too_large);
 			} else {
@@ -210,13 +210,13 @@ public class FileSelect extends Activity {
 		input.close();
 		return bytes;
 	}
-	
-	
+
+
 	public void setFile(String path) {
 		Intent intent = new Intent();
 		intent.putExtra(RESULT_DATA, path);
 		setResult(Activity.RESULT_OK,intent);
-		finish();		
+		finish();
 	}
 
 	public String getSelectPath() {
@@ -232,21 +232,21 @@ public class FileSelect extends Activity {
 		else
 			return "";
 	}
-	
+
 	public void clearData() {
 		Intent intent = new Intent();
 		intent.putExtra(RESULT_DATA, (String)null);
 		setResult(Activity.RESULT_OK,intent);
 		finish();
-		
+
 	}
 
 	public void saveInlineData(String string) {
 		Intent intent = new Intent();
-		
+
 		intent.putExtra(RESULT_DATA,VpnProfile.INLINE_TAG + string);
 		setResult(Activity.RESULT_OK,intent);
 		finish();
-		
+
 	}
 }

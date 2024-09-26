@@ -28,8 +28,12 @@ import android.content.Context;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 
+/**
+ * A custom preference that displays text without invoking a dialog.
+ */
 public class ShowTextPreference extends DialogPreference {
 
+    // Constructors
     public ShowTextPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
@@ -44,14 +48,19 @@ public class ShowTextPreference extends DialogPreference {
 
     @Override
     protected void onClick() {
-        /* don't invoke the superclass; we do not want a dialog to pop up */
+        // Override to prevent dialog from popping up when clicked
     }
 
     public void setText(String text) {
+        // Ensure text is not null
         if (text == null) {
-            text = "";
+            text = ""; // Use empty string if null
         }
+
+        // Persist the string value
         persistString(text);
+
+        // Notify dependents if this preference's value has changed
         notifyDependencyChange(shouldDisableDependents());
     }
 }
