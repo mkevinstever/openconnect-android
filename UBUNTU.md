@@ -24,7 +24,7 @@ sudo apt-get install -y openjdk-8-jdk
 If you need to set the JAVA_HOME environment variable, you can add it in `~/.bashrc` or `~/.bash_profile`:
 
 ```bash
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export PATH=$JAVA_HOME/bin:$PATH
 ```
 
@@ -92,8 +92,8 @@ chmod +x gradlew
 ### 9. Initialize and update Git submodules
 
 ```bash
-git submodule init
-git submodule update
+git clone https://gitlab.com/openconnect/openconnect external/openconnect
+git clone https://github.com/cernekee/stoken external/stoken
 ```
 
 ### 10. Build external dependencies
