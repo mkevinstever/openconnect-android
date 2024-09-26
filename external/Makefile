@@ -1,4 +1,4 @@
-NDK := /opt/android-sdk-linux_x86/android-ndk-r25c
+NDK := /opt/android-sdk-linux_x86/android-ndk-r21b
 TOOLCHAIN := $(NDK)/toolchains/llvm/prebuilt/linux-x86_64
 
 TARGETS := arm arm64 x86 x86_64
