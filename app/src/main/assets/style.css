@@ -3,5 +3,10 @@ body {
 }
 
 a {
-	color: #87CEEB;
+	color: #0000FF;
+	text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
 }
