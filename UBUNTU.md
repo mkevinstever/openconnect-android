@@ -102,8 +102,8 @@ Go to the `external` directory, set the path to the NDK and run `make`:
 
 ```bash
 cd external
-export PATH=/opt/android-sdk-linux_x86/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
-export NDK=/opt/android-sdk-linux_x86/android-ndk-r19c
+export PATH=/opt/android-sdk-linux_x86/android-ndk-r18b/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
+export NDK=/opt/android-sdk-linux_x86/android-ndk-r18b
 make VERBOSE=1
 ```
 
