@@ -4,7 +4,7 @@ Run the following commands in the terminal to update the package list and instal
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y git autoconf automake libtool build-essential gcc make pkg-config gettext
+sudo apt-get install -y git autoconf automake libtool build-essential gcc make pkg-config gettext unzip
 ```
 
 ### 2. Install JDK 17
@@ -13,6 +13,12 @@ You can use either **OpenJDK** or **Temurin** versions. Here are the commands to
 
 ```bash
 sudo apt-get install -y openjdk-17-jdk
+```
+
+And install **OpenJDK 8** for external compile.
+
+```bash
+sudo apt-get install -y openjdk-8-jdk
 ```
 
 If you need to set the JAVA_HOME environment variable, you can add it in `~/.bashrc` or `~/.bash_profile`:
@@ -116,3 +122,4 @@ After the build is complete, you can find the generated APK file in the `app/bui
 ### 13. Other need to know
 
 1.Move CPU architecture .so file to app -- jniLibs on android studio
+2.Move curl-bin run_pie to app -- assets and put it to suitable folder.
