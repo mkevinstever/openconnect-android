@@ -4,7 +4,7 @@ Run the following commands in the terminal to update the package list and instal
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y git autoconf automake libtool build-essential gcc make pkg-config gettext unzip vim python-is-python3 python3
+sudo apt-get install -y git autoconf automake libtool build-essential gcc make pkg-config gettext unzip vim python-is-python3 python3-full
 ```
 
 ### 2. Install JDK 17
