@@ -85,7 +85,7 @@ rm apache-ant-1.10.14-bin.tar.bz2
 
 ```bash
 cd $HOME
-git clone https://github.com/mkevinstever/openconnect-android.git
+git clone https://github.com/mkevinstever/openconnect-android
 cd openconnect-android
 ```
 
