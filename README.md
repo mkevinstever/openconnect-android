@@ -4,7 +4,7 @@
 
 <img src="screenshots/feature.jpg" alt="feature" style="width:960px;height:480px;">
 
-This is a VPN client for Android, based on the Linux build of [OpenConnect](http://www.infradead.org/openconnect/). Available for Arm and Arm64 platform.
+This is a VPN client for Android, based on the Linux build of [OpenConnect](http://www.infradead.org/openconnect/).
 
 Much of the Java code was derived from [OpenVPN for Android](https://play.google.com/store/apps/details?id=de.blinkt.openvpn&hl=en) by Arne Schwabe.
 
@@ -40,7 +40,7 @@ On the host system, you'll need to install the following:
 - **Development Tools**: Install `gcc`, `make`, and other necessary tools (e.g., Red Hat "Development Tools" or Debian's `build-essential` package).
 - **Version Control and Build Tools**: Install `git`, `autoconf`, `automake`, and `libtool`.
 
-If you use Ubuntu, just need follow this instructions on repository UBUNTU.md
+If you use Ubuntu, just need follow instructions on UBUNTU.md
 
 ### Compiling the External Dependencies
 
