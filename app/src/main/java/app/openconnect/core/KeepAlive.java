@@ -223,7 +223,8 @@ public class KeepAlive extends BroadcastReceiver {
 		am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + delayMs, mPendingIntent);
 	}
 
-	public void start(Context context) {
+	@SuppressLint("InvalidWakeLockTag")
+    public void start(Context context) {
 		if (mBaseDelayMs == 0) {
 			return;
 		}
