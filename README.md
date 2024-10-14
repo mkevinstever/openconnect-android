@@ -1,4 +1,4 @@
-### Current status: cannot type username and password on connect (won't pop-up UI for let user type these) (need community help), but other bugs has been fixed.
+### Current status: There is no UI popup to enter username and password when connecting, but other bugs have been fixed.
 
 # OpenConnect for Android
 
