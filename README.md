@@ -1,5 +1,7 @@
 # OpenConnect for Android
 
+****Please tell me if you found any bug.****
+
 This is a VPN client for Android, based on the Linux build of [OpenConnect](http://www.infradead.org/openconnect/).
 
 Much of the Java code was derived from [OpenVPN for Android](https://play.google.com/store/apps/details?id=de.blinkt.openvpn&hl=en) by Arne Schwabe.
