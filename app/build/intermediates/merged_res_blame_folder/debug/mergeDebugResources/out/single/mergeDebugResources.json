@@ -1,0 +1,266 @@
+[
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-xhdpi_ic_sysbar_quicksettings.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-xhdpi/ic_sysbar_quicksettings.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-hdpi_ic_clock.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-hdpi/ic_clock.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_token_unlock.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/token_unlock.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-xhdpi_ic_stat_vpn_offline.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-xhdpi/ic_stat_vpn_offline.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_file_select.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/file_select.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_status.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/status.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_vpn_list_item.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/vpn_list_item.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable_folder.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable/folder.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-xxhdpi_ic_action_refresh.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-xxhdpi/ic_action_refresh.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-mdpi_ic_stat_vpn_outline.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-mdpi/ic_stat_vpn_outline.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-xhdpi_ic_launcher.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_add_new_vpn.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/add_new_vpn.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-hdpi_ic_menu_trash_holo_light.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-hdpi/ic_menu_trash_holo_light.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-mdpi_ic_launcher.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-xhdpi_ic_clock.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-xhdpi/ic_clock.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-xhdpi_ic_stat_vpn_outline.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-xhdpi/ic_stat_vpn_outline.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_file_dialog_inline.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/file_dialog_inline.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_feedback.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/feedback.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_token_diag_info.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/token_diag_info.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-xxxhdpi_ic_launcher.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/animator_fragment_slide_left_exit.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/animator/fragment_slide_left_exit.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_file_dialog_row.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/file_dialog_row.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-xxxhdpi_ic_stat_vpn.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-xxxhdpi/ic_stat_vpn.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-xhdpi_ic_stat_vpn_empty_halo.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-xhdpi/ic_stat_vpn_empty_halo.png"
+    },
+    {
+        "merged": "app.openconnect.app-debug-32:/xml_general_settings.xml.flat",
+        "source": "app.openconnect.app-main-34:/xml/general_settings.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_token_string.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/token_string.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-xhdpi_ic_menu_archive.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-xhdpi/ic_menu_archive.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/menu_vpnpreferences_menu.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/menu/vpnpreferences_menu.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-hdpi_ic_launcher.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/animator_fragment_slide_left_enter.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/animator/fragment_slide_left_enter.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/menu_logmenu.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/menu/logmenu.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-mdpi_ic_stat_vpn_offline.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-mdpi/ic_stat_vpn_offline.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_fragment_senddump.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/fragment_senddump.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_faq.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/faq.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/animator_fragment_slide_right_exit.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/animator/fragment_slide_right_exit.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_file_dialog_main.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/file_dialog_main.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-mdpi_ic_clock.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-mdpi/ic_clock.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_vpn_profile_list.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/vpn_profile_list.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-mdpi_ic_menu_trash_holo_light.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-mdpi/ic_menu_trash_holo_light.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-hdpi_ic_sysbar_quicksettings.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-hdpi/ic_sysbar_quicksettings.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-mdpi_ic_sysbar_quicksettings.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-mdpi/ic_sysbar_quicksettings.png"
+    },
+    {
+        "merged": "app.openconnect.app-debug-32:/animator_fade_in.xml.flat",
+        "source": "app.openconnect.app-main-34:/animator/fade_in.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-mdpi_ic_alerts_and_states_warning.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-mdpi/ic_alerts_and_states_warning.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_token_diag_parent.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/token_diag_parent.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-xhdpi_ic_alerts_and_states_warning.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-xhdpi/ic_alerts_and_states_warning.png"
+    },
+    {
+        "merged": "app.openconnect.app-debug-32:/animator_fragment_slide_left_enter.xml.flat",
+        "source": "app.openconnect.app-main-34:/animator/fragment_slide_left_enter.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-xxhdpi_ic_alerts_and_states_warning.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-xxhdpi/ic_alerts_and_states_warning.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-hdpi_ic_alerts_and_states_warning.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-hdpi/ic_alerts_and_states_warning.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_about.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/about.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_token_diag_error.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/token_diag_error.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-hdpi_ic_menu_archive.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-hdpi/ic_menu_archive.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_api_confirm.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/api_confirm.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-xhdpi_ic_menu_trash_holo_light.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-xhdpi/ic_menu_trash_holo_light.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_token_profile.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/token_profile.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_file_dialog.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/file_dialog.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/animator_fade_out.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/animator/fade_out.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/layout_logwindow.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/layout/logwindow.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable_file.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable/file.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/xml_pref_openconnect.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/xml/pref_openconnect.xml"
+    },
+    {
+        "merged": "app.openconnect.app-debug-32:/animator_fade_out.xml.flat",
+        "source": "app.openconnect.app-main-34:/animator/fade_out.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/animator_fragment_slide_right_enter.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/animator/fragment_slide_right_enter.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/xml_general_settings.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/xml/general_settings.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-mdpi_ic_menu_archive.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-mdpi/ic_menu_archive.png"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/animator_fade_in.xml.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/animator/fade_in.xml"
+    },
+    {
+        "merged": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-debug-32:/drawable-mdpi_ic_stat_vpn_empty_halo.png.flat",
+        "source": "/home/guy/.gradle/daemon/8.7/app.openconnect.app-main-34:/drawable-mdpi/ic_stat_vpn_empty_halo.png"
+    }
+]

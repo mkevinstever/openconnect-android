@@ -1,0 +1,576 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="app.openconnect"
+4    android:versionCode="1121"
+5    android:versionName="1.34" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:6:5-67
+11-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:6:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:7:5-79
+12-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:7:22-76
+13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+13-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:8:5-76
+13-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:8:22-73
+14    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+14-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:9:5-79
+14-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:9:22-76
+15    <uses-permission android:name="android.permission.BLUETOOTH" />
+15-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:10:5-67
+15-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:10:22-65
+16    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+16-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:11:5-76
+16-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:11:22-73
+17    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+17-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:12:5-77
+17-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:12:22-74
+18    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+18-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:13:5-81
+18-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:13:22-78
+19    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+19-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:14:5-80
+19-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:14:22-77
+20    <uses-permission android:name="android.permission.WAKE_LOCK" />
+20-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:15:5-68
+20-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:15:22-65
+21    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+21-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:16:5-77
+21-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:16:22-74
+22
+23    <permission
+23-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:18:5-22:47
+24        android:name="app.openconnect.REMOTE_API"
+24-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:19:9-50
+25        android:description="@string/permission_description"
+25-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:20:9-61
+26        android:label="Control OpenConnect"
+26-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:21:9-44
+27        android:protectionLevel="dangerous" />
+27-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:22:9-44
+28    <permission
+28-->[androidx.core:core:1.9.0] /home/guy/.gradle/caches/transforms-4/c2be3eeff37a9ead1d2c3ad74ec6f1c4/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+29        android:name="app.openconnect.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+29-->[androidx.core:core:1.9.0] /home/guy/.gradle/caches/transforms-4/c2be3eeff37a9ead1d2c3ad74ec6f1c4/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+30        android:protectionLevel="signature" />
+30-->[androidx.core:core:1.9.0] /home/guy/.gradle/caches/transforms-4/c2be3eeff37a9ead1d2c3ad74ec6f1c4/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+31
+32    <uses-permission android:name="app.openconnect.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+32-->[androidx.core:core:1.9.0] /home/guy/.gradle/caches/transforms-4/c2be3eeff37a9ead1d2c3ad74ec6f1c4/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+32-->[androidx.core:core:1.9.0] /home/guy/.gradle/caches/transforms-4/c2be3eeff37a9ead1d2c3ad74ec6f1c4/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+33
+34    <application
+34-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:24:5-154:15
+35        android:name="app.openconnect.Application"
+35-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:25:9-51
+36        android:allowBackup="true"
+36-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:26:9-35
+37        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+37-->[androidx.core:core:1.9.0] /home/guy/.gradle/caches/transforms-4/c2be3eeff37a9ead1d2c3ad74ec6f1c4/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+38        android:debuggable="true"
+39        android:extractNativeLibs="false"
+40        android:icon="@drawable/ic_launcher"
+40-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:27:9-45
+41        android:label="@string/app"
+41-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:28:9-36
+42        android:supportsRtl="true"
+42-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:29:9-35
+43        android:testOnly="true" >
+44        <activity
+44-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:31:9-86
+45            android:name="app.openconnect.ConnectionEditorActivity"
+45-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:31:19-59
+46            android:exported="true" />
+46-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:31:60-83
+47        <activity
+47-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:32:9-74
+48            android:name="app.openconnect.FragActivity"
+48-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:32:19-47
+49            android:exported="true" />
+49-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:32:48-71
+50        <activity
+50-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:34:9-67:20
+51            android:name="app.openconnect.TokenImportActivity"
+51-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:35:13-48
+52            android:exported="true" >
+52-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:36:13-36
+53            <intent-filter>
+53-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:37:13-42:29
+54                <action android:name="android.intent.action.VIEW" />
+54-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:38:17-69
+54-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:38:25-66
+55
+56                <category android:name="android.intent.category.BROWSABLE" />
+56-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:39:17-78
+56-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:39:27-75
+57                <category android:name="android.intent.category.DEFAULT" />
+57-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:40:17-76
+57-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:40:27-73
+58
+59                <data
+59-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:41:17-100
+60                    android:host="127.0.0.1"
+60-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:41:23-47
+61                    android:path="/securid/ctf"
+61-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:41:48-75
+62                    android:scheme="http" />
+62-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:41:76-97
+63            </intent-filter>
+64            <intent-filter>
+64-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:43:13-48:29
+65                <action android:name="android.intent.action.VIEW" />
+65-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:38:17-69
+65-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:38:25-66
+66
+67                <category android:name="android.intent.category.BROWSABLE" />
+67-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:39:17-78
+67-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:39:27-75
+68                <category android:name="android.intent.category.DEFAULT" />
+68-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:40:17-76
+68-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:40:27-73
+69
+70                <data
+70-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:41:17-100
+71                    android:host="rsa.com"
+71-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:41:23-47
+72                    android:path="/android/token/ctf"
+72-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:41:48-75
+73                    android:scheme="http" />
+73-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:41:76-97
+74            </intent-filter>
+75            <intent-filter>
+75-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:49:13-54:29
+76                <action android:name="android.intent.action.VIEW" />
+76-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:38:17-69
+76-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:38:25-66
+77
+78                <category android:name="android.intent.category.BROWSABLE" />
+78-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:39:17-78
+78-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:39:27-75
+79                <category android:name="android.intent.category.DEFAULT" />
+79-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:40:17-76
+79-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:40:27-73
+80
+81                <data android:scheme="com.rsa.securid" />
+81-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:41:17-100
+81-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:41:76-97
+82            </intent-filter>
+83            <intent-filter>
+83-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:55:13-60:29
+84                <action android:name="android.intent.action.VIEW" />
+84-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:38:17-69
+84-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:38:25-66
+85
+86                <category android:name="android.intent.category.BROWSABLE" />
+86-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:39:17-78
+86-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:39:27-75
+87                <category android:name="android.intent.category.DEFAULT" />
+87-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:40:17-76
+87-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:40:27-73
+88
+89                <data android:scheme="com.rsa.securid.iphone" />
+89-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:41:17-100
+89-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:41:76-97
+90            </intent-filter>
+91            <intent-filter>
+91-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:61:13-66:29
+92                <action android:name="android.intent.action.VIEW" />
+92-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:38:17-69
+92-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:38:25-66
+93
+94                <category android:name="android.intent.category.BROWSABLE" />
+94-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:39:17-78
+94-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:39:27-75
+95                <category android:name="android.intent.category.DEFAULT" />
+95-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:40:17-76
+95-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:40:27-73
+96
+97                <data
+97-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:41:17-100
+98                    android:host="*"
+98-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:41:23-47
+99                    android:mimeType="*/*"
+99-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:65:40-62
+100                    android:pathPattern=".*\\.sdtid"
+100-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:65:63-95
+101                    android:scheme="file" />
+101-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:41:76-97
+102            </intent-filter>
+103        </activity>
+104        <activity
+104-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:69:9-72
+105            android:name="app.openconnect.FileSelect"
+105-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:69:19-45
+106            android:exported="true" />
+106-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:69:46-69
+107        <activity
+107-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:71:9-82:20
+108            android:name="app.openconnect.MainActivity"
+108-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:72:13-41
+109            android:exported="true"
+109-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:73:13-36
+110            android:uiOptions="splitActionBarWhenNarrow" >
+110-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:74:13-57
+111            <intent-filter>
+111-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:76:13-81:29
+112                <action android:name="android.intent.action.MAIN" />
+112-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:77:17-69
+112-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:77:25-66
+113                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
+113-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:78:17-99
+113-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:78:25-96
+114
+115                <category android:name="android.intent.category.BROWSABLE" />
+115-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:39:17-78
+115-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:39:27-75
+116                <category android:name="android.intent.category.LAUNCHER" />
+116-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:80:17-77
+116-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:80:27-74
+117            </intent-filter>
+118        </activity>
+119        <activity
+119-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:84:9-89:59
+120            android:name="org.acra.CrashReportDialog"
+120-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:85:13-54
+121            android:excludeFromRecents="true"
+121-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:86:13-46
+122            android:finishOnTaskLaunch="true"
+122-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:87:13-46
+123            android:launchMode="singleInstance"
+123-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:88:13-48
+124            android:theme="@android:style/Theme.Dialog" />
+124-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:89:13-56
+125
+126        <service
+126-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:91:9-98:19
+127            android:name="app.openconnect.core.OpenVpnService"
+127-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:92:13-63
+128            android:exported="true"
+128-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:93:13-36
+129            android:permission="android.permission.BIND_VPN_SERVICE" >
+129-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:94:13-69
+130            <intent-filter>
+130-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:95:13-97:29
+131                <action android:name="android.net.VpnService" />
+131-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:96:17-65
+131-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:96:25-62
+132            </intent-filter>
+133        </service>
+134        <service
+134-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:100:9-109:19
+135            android:name="app.openconnect.QSTileService"
+135-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:101:13-42
+136            android:exported="true"
+136-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:102:13-36
+137            android:icon="@drawable/ic_launcher"
+137-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:103:13-49
+138            android:label="@string/app"
+138-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:104:13-40
+139            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" >
+139-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:105:13-77
+140            <intent-filter>
+140-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:106:13-108:29
+141                <action android:name="android.service.quicksettings.action.QS_TILE" />
+141-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:107:17-87
+141-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:107:25-84
+142            </intent-filter>
+143        </service>
+144
+145        <activity
+145-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:111:9-118:20
+146            android:name="app.openconnect.api.GrantPermissionsActivity"
+146-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:112:13-57
+147            android:exported="true"
+147-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:113:13-36
+148            android:permission="app.openconnect.REMOTE_API" >
+148-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:114:13-60
+149            <intent-filter>
+149-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:115:13-117:29
+150                <action android:name="android.intent.action.MAIN" />
+150-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:77:17-69
+150-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:77:25-66
+151            </intent-filter>
+152        </activity>
+153        <activity
+153-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:120:9-127:20
+154            android:name="app.openconnect.api.ConfirmDialog"
+154-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:121:13-46
+155            android:exported="true"
+155-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:122:13-36
+156            android:permission="app.openconnect.REMOTE_API" >
+156-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:123:13-60
+157            <intent-filter>
+157-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:115:13-117:29
+158                <action android:name="android.intent.action.MAIN" />
+158-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:77:17-69
+158-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:77:25-66
+159            </intent-filter>
+160        </activity>
+161
+162        <receiver
+162-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:129:9-135:20
+163            android:name="app.openconnect.OnBootReceiver"
+163-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:130:13-43
+164            android:exported="false" >
+164-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:131:13-37
+165            <intent-filter>
+165-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:132:13-134:29
+166                <action android:name="android.intent.action.BOOT_COMPLETED" />
+166-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:133:17-79
+166-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:133:25-76
+167            </intent-filter>
+168        </receiver>
+169
+170        <provider
+170-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:137:5-142:50
+171            android:name="app.openconnect.FileProvider"
+171-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:138:9-37
+172            android:authorities="app.openconnect.FileProvider"
+172-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:139:9-59
+173            android:exported="true"
+173-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:140:9-32
+174            android:grantUriPermissions="true" />
+174-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:141:9-43
+175
+176        <meta-data
+176-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:144:5-146:32
+177            android:name="xposedmodule"
+177-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:145:9-36
+178            android:value="true" />
+178-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:146:9-29
+179        <meta-data
+179-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:147:5-149:66
+180            android:name="xposeddescription"
+180-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:148:9-41
+181            android:value="Bypass Android VPN confirmation dialog" />
+181-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:149:9-63
+182        <meta-data
+182-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:150:5-152:30
+183            android:name="xposedminversion"
+183-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:151:9-40
+184            android:value="30" />
+184-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:152:9-27
+185
+186        <provider
+186-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:29:9-37:20
+187            android:name="androidx.startup.InitializationProvider"
+187-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:30:13-67
+188            android:authorities="app.openconnect.androidx-startup"
+188-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:31:13-68
+189            android:exported="false" >
+189-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:32:13-37
+190            <meta-data
+190-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:34:13-36:52
+191                android:name="androidx.work.WorkManagerInitializer"
+191-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:35:17-68
+192                android:value="androidx.startup" />
+192-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:36:17-49
+193            <meta-data
+193-->[androidx.emoji2:emoji2:1.2.0] /home/guy/.gradle/caches/transforms-4/de12fd4a90e9ceb6479c9a6f0cbc06bf/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+194                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+194-->[androidx.emoji2:emoji2:1.2.0] /home/guy/.gradle/caches/transforms-4/de12fd4a90e9ceb6479c9a6f0cbc06bf/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+195                android:value="androidx.startup" />
+195-->[androidx.emoji2:emoji2:1.2.0] /home/guy/.gradle/caches/transforms-4/de12fd4a90e9ceb6479c9a6f0cbc06bf/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+196            <meta-data
+196-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/guy/.gradle/caches/transforms-4/0a47ba7a9eff020cd089fa77165d77f1/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+197                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+197-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/guy/.gradle/caches/transforms-4/0a47ba7a9eff020cd089fa77165d77f1/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+198                android:value="androidx.startup" />
+198-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/guy/.gradle/caches/transforms-4/0a47ba7a9eff020cd089fa77165d77f1/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+199        </provider>
+200
+201        <service
+201-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:39:9-45:35
+202            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+202-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:40:13-88
+203            android:directBootAware="false"
+203-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:41:13-44
+204            android:enabled="@bool/enable_system_alarm_service_default"
+204-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:42:13-72
+205            android:exported="false" />
+205-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:43:13-37
+206        <service
+206-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:46:9-52:35
+207            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+207-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:47:13-84
+208            android:directBootAware="false"
+208-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:48:13-44
+209            android:enabled="@bool/enable_system_job_service_default"
+209-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:49:13-70
+210            android:exported="true"
+210-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:50:13-36
+211            android:permission="android.permission.BIND_JOB_SERVICE" />
+211-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:51:13-69
+212        <service
+212-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:53:9-59:35
+213            android:name="androidx.work.impl.foreground.SystemForegroundService"
+213-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:54:13-81
+214            android:directBootAware="false"
+214-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:55:13-44
+215            android:enabled="@bool/enable_system_foreground_service_default"
+215-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:56:13-77
+216            android:exported="false" />
+216-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:57:13-37
+217
+218        <receiver
+218-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:61:9-66:35
+219            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+219-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:62:13-88
+220            android:directBootAware="false"
+220-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:63:13-44
+221            android:enabled="true"
+221-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:64:13-35
+222            android:exported="false" />
+222-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:65:13-37
+223        <receiver
+223-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:67:9-77:20
+224            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+224-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:68:13-106
+225            android:directBootAware="false"
+225-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:69:13-44
+226            android:enabled="false"
+226-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:70:13-36
+227            android:exported="false" >
+227-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:71:13-37
+228            <intent-filter>
+228-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:73:13-76:29
+229                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+229-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:74:17-87
+229-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:74:25-84
+230                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+230-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:75:17-90
+230-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:75:25-87
+231            </intent-filter>
+232        </receiver>
+233        <receiver
+233-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:78:9-88:20
+234            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+234-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:79:13-104
+235            android:directBootAware="false"
+235-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:80:13-44
+236            android:enabled="false"
+236-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:81:13-36
+237            android:exported="false" >
+237-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:82:13-37
+238            <intent-filter>
+238-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:84:13-87:29
+239                <action android:name="android.intent.action.BATTERY_OKAY" />
+239-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:85:17-77
+239-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:85:25-74
+240                <action android:name="android.intent.action.BATTERY_LOW" />
+240-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:86:17-76
+240-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:86:25-73
+241            </intent-filter>
+242        </receiver>
+243        <receiver
+243-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:89:9-99:20
+244            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+244-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:90:13-104
+245            android:directBootAware="false"
+245-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:91:13-44
+246            android:enabled="false"
+246-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:92:13-36
+247            android:exported="false" >
+247-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:93:13-37
+248            <intent-filter>
+248-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:95:13-98:29
+249                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+249-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:96:17-83
+249-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:96:25-80
+250                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+250-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:97:17-82
+250-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:97:25-79
+251            </intent-filter>
+252        </receiver>
+253        <receiver
+253-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:100:9-109:20
+254            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+254-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:101:13-103
+255            android:directBootAware="false"
+255-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:102:13-44
+256            android:enabled="false"
+256-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:103:13-36
+257            android:exported="false" >
+257-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:104:13-37
+258            <intent-filter>
+258-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:106:13-108:29
+259                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+259-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:107:17-79
+259-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:107:25-76
+260            </intent-filter>
+261        </receiver>
+262        <receiver
+262-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:110:9-121:20
+263            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+263-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:111:13-88
+264            android:directBootAware="false"
+264-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:112:13-44
+265            android:enabled="false"
+265-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:113:13-36
+266            android:exported="false" >
+266-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:114:13-37
+267            <intent-filter>
+267-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:116:13-120:29
+268                <action android:name="android.intent.action.BOOT_COMPLETED" />
+268-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:133:17-79
+268-->/home/guy/openconnect-android/app/src/main/AndroidManifest.xml:133:25-76
+269                <action android:name="android.intent.action.TIME_SET" />
+269-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:118:17-73
+269-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:118:25-70
+270                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+270-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:119:17-81
+270-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:119:25-78
+271            </intent-filter>
+272        </receiver>
+273        <receiver
+273-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:122:9-131:20
+274            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+274-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:123:13-99
+275            android:directBootAware="false"
+275-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:124:13-44
+276            android:enabled="@bool/enable_system_alarm_service_default"
+276-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:125:13-72
+277            android:exported="false" >
+277-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:126:13-37
+278            <intent-filter>
+278-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:128:13-130:29
+279                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+279-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:129:17-98
+279-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:129:25-95
+280            </intent-filter>
+281        </receiver>
+282        <receiver
+282-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:132:9-142:20
+283            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+283-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:133:13-78
+284            android:directBootAware="false"
+284-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:134:13-44
+285            android:enabled="true"
+285-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:135:13-35
+286            android:exported="true"
+286-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:136:13-36
+287            android:permission="android.permission.DUMP" >
+287-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:137:13-57
+288            <intent-filter>
+288-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:139:13-141:29
+289                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+289-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:140:17-88
+289-->[androidx.work:work-runtime:2.8.1] /home/guy/.gradle/caches/transforms-4/913c287f8f57d08aa0402e3d9662f3eb/transformed/work-runtime-2.8.1/AndroidManifest.xml:140:25-85
+290            </intent-filter>
+291        </receiver>
+292
+293        <service
+293-->[androidx.room:room-runtime:2.5.0] /home/guy/.gradle/caches/transforms-4/ca374ac60df7c3647a5aa681a103e6c6/transformed/room-runtime-2.5.0/AndroidManifest.xml:24:9-28:63
+294            android:name="androidx.room.MultiInstanceInvalidationService"
+294-->[androidx.room:room-runtime:2.5.0] /home/guy/.gradle/caches/transforms-4/ca374ac60df7c3647a5aa681a103e6c6/transformed/room-runtime-2.5.0/AndroidManifest.xml:25:13-74
+295            android:directBootAware="true"
+295-->[androidx.room:room-runtime:2.5.0] /home/guy/.gradle/caches/transforms-4/ca374ac60df7c3647a5aa681a103e6c6/transformed/room-runtime-2.5.0/AndroidManifest.xml:26:13-43
+296            android:exported="false" />
+296-->[androidx.room:room-runtime:2.5.0] /home/guy/.gradle/caches/transforms-4/ca374ac60df7c3647a5aa681a103e6c6/transformed/room-runtime-2.5.0/AndroidManifest.xml:27:13-37
+297    </application>
+298
+299</manifest>

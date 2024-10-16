@@ -1,0 +1,15 @@
+
+³
+;
+android*http://schemas.android.com/apk/res/android%LinearLayout"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightmatch_parent"(õ„2:0ÿÿÿÿÿÿÿÿÿ"R
+*http://schemas.android.com/apk/res/androidorientationvertical"(Ä„2:0*Ì
+ÃEditText"—
+*http://schemas.android.com/apk/res/androidtextAppearance!?android:attr/textAppearanceSmall"(´€„2-
++Â€„ android:attr/textAppearanceSmall0"`
+*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
+*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0şÿÿÿÿÿÿÿÿ"i
+*http://schemas.android.com/apk/res/android	inputTypetextMultiLine|textNoSuggestions"( „„2:8€("m
+*http://schemas.android.com/apk/res/androidid@+id/inlineFileData"(Ğ„2
+Î€ øid/inlineFileData0F%
