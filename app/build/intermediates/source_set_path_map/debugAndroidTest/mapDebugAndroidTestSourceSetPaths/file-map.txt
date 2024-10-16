@@ -1,6 +1,0 @@
-app.openconnect.test.app-core-1.5.0-0 /home/guy/.gradle/caches/transforms-4/5072df0d48387565058bf6a7a8ae7d7c/transformed/core-1.5.0/res
-app.openconnect.test.app-annotation-experimental-1.1.0-1 /home/guy/.gradle/caches/transforms-4/8ebb1ba649604ff0aec47b2d565c0ef6/transformed/annotation-experimental-1.1.0/res
-app.openconnect.test.app-androidTest-2 /home/guy/openconnect-android/app/build/generated/res/resValues/androidTest/debug
-app.openconnect.test.app-mergeDebugAndroidTestResources-3 /home/guy/openconnect-android/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/merged.dir
-app.openconnect.test.app-mergeDebugAndroidTestResources-4 /home/guy/openconnect-android/app/build/intermediates/incremental/debugAndroidTest/mergeDebugAndroidTestResources/stripped.dir
-app.openconnect.test.app-debugAndroidTest-5 /home/guy/openconnect-android/app/build/intermediates/merged_res/debugAndroidTest/mergeDebugAndroidTestResources

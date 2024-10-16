@@ -1,13 +1,0 @@
-
-ﬂ
-;
-android*http://schemas.android.com/apk/res/androidCmenu*ô
-êitem"H
-*http://schemas.android.com/apk/res/androidalphabeticShortcutd(„ÉÑ"o
-*http://schemas.android.com/apk/res/androidtitle@string/remove_vpn"(·ÉÑ2
-ÙÄ∞¯string/remove_vpn0"Z
-*http://schemas.android.com/apk/res/androidshowAsActionwithText|ifRoom"(ŸÖÑ2:8"â
-*http://schemas.android.com/apk/res/androidicon @android:drawable/ic_menu_delete"(ÇÄÑ2*
-(ºÄ†android:drawable/ic_menu_delete0"e
-*http://schemas.android.com/apk/res/androidid@+id/remove_vpn"(–ÅÑ2
-ËÄ†¯id/remove_vpn0-C

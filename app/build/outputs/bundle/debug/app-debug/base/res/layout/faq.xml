@@ -1,16 +1,0 @@
-
-¶
-;
-android*http://schemas.android.com/apk/res/android/
-ScrollView"t
-*http://schemas.android.com/apk/res/androidpaddingRight@dimen/stdpadding"(Ø„2
-–€˜ødimen/stdpadding0@"`
-*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
-*http://schemas.android.com/apk/res/androidlayout_heightmatch_parent"(õ„2:0ÿÿÿÿÿÿÿÿÿ"s
-*http://schemas.android.com/apk/res/androidpaddingLeft@dimen/stdpadding"(Ö„2
-–€˜ødimen/stdpadding0@*º
-±WebView"`
-*http://schemas.android.com/apk/res/androidlayout_widthmatch_parent"(ô„2:0ÿÿÿÿÿÿÿÿÿ"a
-*http://schemas.android.com/apk/res/androidlayout_heightwrap_content"(õ„2:0şÿÿÿÿÿÿÿÿ"a
-*http://schemas.android.com/apk/res/androidid@+id/faq_text"(Ğ„2
-¼€ øid/faq_text0-/

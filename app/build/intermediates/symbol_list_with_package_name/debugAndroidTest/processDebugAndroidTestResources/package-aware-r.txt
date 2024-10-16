@@ -1,3 +1,0 @@
-app.openconnect.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme
