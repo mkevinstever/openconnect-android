@@ -62,9 +62,7 @@ public class GetRestrictionReceiver extends BroadcastReceiver {
         String title = context.getString(R.string.allow_vpn_changes);
 
 
-        if (title != null) {
-            allowChanges.setTitle(title);
-        }
+        allowChanges.setTitle(title);
 
         restrictions.add(allowChanges);
         return restrictions;

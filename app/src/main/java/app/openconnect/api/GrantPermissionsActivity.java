@@ -82,8 +82,7 @@ public class GrantPermissionsActivity extends Activity {
 			} catch (Exception e) {
 				reportBadRom(e);
 				finish();
-				return;
-			}
+            }
 		} else {
 			onActivityResult(0, RESULT_OK, null);
 		}

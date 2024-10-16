@@ -64,11 +64,8 @@ public class DeviceStateReceiver extends BroadcastReceiver {
     }
 
     private void updatePauseState() {
-    	boolean pause = false;
-    	if (mPauseOnScreenOff && mScreenOff && !mKeepaliveActive) {
-    		pause = true;
-    	}
-    	if (mNetworkOff) {
+    	boolean pause = mPauseOnScreenOff && mScreenOff && !mKeepaliveActive;
+        if (mNetworkOff) {
     		pause = true;
     	}
     	if (pause && !mPaused) {

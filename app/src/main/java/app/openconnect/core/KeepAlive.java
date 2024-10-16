@@ -173,7 +173,7 @@ public class KeepAlive extends BroadcastReceiver {
 			return;
 		}
 
-		mWakeLock.acquire();
+		mWakeLock.acquire(10*60*1000L /*10 minutes*/);
 		mDeviceStateReceiver.setKeepalive(true);
 		mWorkerHandler.post(new Runnable() {
 			@Override
