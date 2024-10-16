@@ -1,5 +1,3 @@
-### Current status: There is no UI popup to enter username and password when connecting, but other bugs have been fixed.
-
 # OpenConnect for Android
 
 This is a VPN client for Android, based on the Linux build of [OpenConnect](http://www.infradead.org/openconnect/).
