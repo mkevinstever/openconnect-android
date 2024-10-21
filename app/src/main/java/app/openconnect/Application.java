@@ -24,6 +24,9 @@
 
 package app.openconnect;
 
+import android.annotation.SuppressLint;
+import android.content.pm.PackageManager;
+
 import org.acra.ACRA;
 import org.acra.ErrorReporter;
 import org.acra.ReportField;
@@ -33,8 +36,6 @@ import org.acra.collector.CrashReportData;
 import org.acra.sender.HttpSender;
 import org.acra.sender.ReportSenderException;
 
-import android.annotation.SuppressLint;
-import android.content.pm.PackageManager;
 import app.openconnect.core.FragCache;
 import app.openconnect.core.ProfileManager;
 import app.openconnect.core.VPNLog;

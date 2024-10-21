@@ -24,10 +24,6 @@
 
 package app.openconnect;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -45,9 +41,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import org.stoken.LibStoken;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import app.openconnect.core.AssetExtractor;
 import app.openconnect.core.ProfileManager;
-import org.stoken.LibStoken;
 
 public class TokenImportActivity extends Activity {
 

@@ -24,10 +24,6 @@
 
 package app.openconnect.fragments;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.SharedPreferences;
@@ -39,6 +35,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import app.openconnect.R;
 import app.openconnect.VpnProfile;
 import app.openconnect.core.ProfileManager;

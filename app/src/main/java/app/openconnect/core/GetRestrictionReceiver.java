@@ -31,7 +31,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.RestrictionEntry;
 import android.os.Bundle;
+
 import java.util.ArrayList;
+
 import app.openconnect.R;
 
 public class GetRestrictionReceiver extends BroadcastReceiver {

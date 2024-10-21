@@ -25,9 +25,6 @@
 
 package app.openconnect.fragments;
 
-import java.io.File;
-import java.util.ArrayList;
-
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
@@ -39,6 +36,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+
+import java.io.File;
+import java.util.ArrayList;
+
 import app.openconnect.R;
 import app.openconnect.core.OpenVPN;
 

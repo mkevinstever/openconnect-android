@@ -15,9 +15,9 @@
 
 package org.infradead.libopenconnect;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.time.Instant;
 
 public abstract class LibOpenConnect {
 

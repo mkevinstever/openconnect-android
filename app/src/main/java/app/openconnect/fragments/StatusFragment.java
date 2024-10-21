@@ -36,12 +36,13 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import org.infradead.libopenconnect.LibOpenConnect;
+
 import app.openconnect.R;
 import app.openconnect.core.OpenConnectManagementThread;
 import app.openconnect.core.OpenVpnService;
 import app.openconnect.core.VPNConnector;
-
-import org.infradead.libopenconnect.LibOpenConnect;
 
 public class StatusFragment extends Fragment {
 

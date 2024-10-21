@@ -28,10 +28,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 
-import java.io.IOException;
-
-import com.stericson.RootTools.Constants;
 import com.stericson.RootTools.RootTools;
+
+import java.io.IOException;
 
 public abstract class Command {
 

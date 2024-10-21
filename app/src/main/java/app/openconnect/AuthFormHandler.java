@@ -24,15 +24,6 @@
 
 package app.openconnect;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.infradead.libopenconnect.LibOpenConnect;
-
-import app.openconnect.core.UserDialog;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -52,6 +43,15 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import org.infradead.libopenconnect.LibOpenConnect;
+
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.util.ArrayList;
+import java.util.List;
+
+import app.openconnect.core.UserDialog;
 
 public class AuthFormHandler extends UserDialog
 		implements DialogInterface.OnClickListener, DialogInterface.OnDismissListener {
