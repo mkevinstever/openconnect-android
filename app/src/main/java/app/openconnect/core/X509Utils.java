@@ -2,17 +2,28 @@ package app.openconnect.core;
 
 import android.content.Context;
 import android.text.TextUtils;
-import app.openconnect.R;
-import app.openconnect.VpnProfile;
+
 import org.spongycastle.util.io.pem.PemObject;
 import org.spongycastle.util.io.pem.PemReader;
 
-import javax.security.auth.x500.X500Principal;
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Reader;
+import java.io.StringReader;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+
+import javax.security.auth.x500.X500Principal;
+
+import app.openconnect.R;
+import app.openconnect.VpnProfile;
 
 /**
  * Utility class for handling X.509 certificates.

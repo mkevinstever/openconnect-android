@@ -1,10 +1,11 @@
 
 package app.openconnect.core;
 
-import java.util.HashMap;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
+
+import java.util.HashMap;
 
 /**
  * Abstract class for handling user dialogs and managing user preferences.

@@ -25,10 +25,6 @@
 
 package app.openconnect.api;
 
-import java.lang.ref.WeakReference;
-import java.util.LinkedList;
-import java.util.List;
-
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
@@ -44,6 +40,11 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
+
+import java.lang.ref.WeakReference;
+import java.util.LinkedList;
+import java.util.List;
+
 import app.openconnect.VpnProfile;
 import app.openconnect.core.OpenVPN.ConnectionStatus;
 import app.openconnect.core.OpenVpnService;
