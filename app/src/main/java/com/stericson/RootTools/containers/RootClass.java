@@ -1,11 +1,6 @@
 package com.stericson.RootTools.containers;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -26,7 +21,7 @@ public class RootClass /* #ANNOTATIONS extends AbstractProcessor */ {
     }
     */
 
-    enum READ_STATE { STARTING, FOUND_ANNOTATION; };
+    enum READ_STATE { STARTING, FOUND_ANNOTATION}
 
     public RootClass(String[] args) throws ClassNotFoundException, NoSuchMethodException,
             IllegalAccessException, InvocationTargetException, InstantiationException {
@@ -40,7 +35,7 @@ public class RootClass /* #ANNOTATIONS extends AbstractProcessor */ {
         classConstructor.newInstance(actualArgs);
     }
 
-    public @interface Candidate {};
+    public @interface Candidate {}
 
     public class RootArgs {
         public String args[];

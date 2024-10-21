@@ -24,12 +24,12 @@
 
 package app.openconnect;
 
+import java.lang.reflect.Field;
+
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Binder;
-
-import java.lang.reflect.Field;
 
 import de.robv.android.xposed.IXposedHookZygoteInit;
 import de.robv.android.xposed.XC_MethodHook;

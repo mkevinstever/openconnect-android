@@ -25,14 +25,14 @@
 
 package app.openconnect.api;
 
+import java.lang.ref.WeakReference;
+import java.util.HashSet;
+import java.util.Set;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.preference.PreferenceManager;
-
-import java.lang.ref.WeakReference;
-import java.util.HashSet;
-import java.util.Set;
 
 public class ExternalAppDatabase {
 

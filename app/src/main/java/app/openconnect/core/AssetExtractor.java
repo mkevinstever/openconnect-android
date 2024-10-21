@@ -24,9 +24,6 @@
 
 package app.openconnect.core;
 
-import android.content.Context;
-import android.util.Log;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -41,6 +38,9 @@ import java.util.Enumeration;
 import java.util.zip.CRC32;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+
+import android.content.Context;
+import android.util.Log;
 
 public class AssetExtractor {
 

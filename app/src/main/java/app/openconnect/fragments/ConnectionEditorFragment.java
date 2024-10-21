@@ -24,12 +24,18 @@
 
 package app.openconnect.fragments;
 
-import android.app.Activity;
+import java.util.HashMap;
+import java.util.Map;
+
+import app.openconnect.FileSelect;
+import app.openconnect.ConnectionEditorActivity;
+import app.openconnect.R;
+import app.openconnect.ShowTextPreference;
+import app.openconnect.TokenImportActivity;
+import app.openconnect.VpnProfile;
+import app.openconnect.core.ProfileManager;
+
 import android.app.Dialog;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.EditTextPreference;
@@ -38,20 +44,14 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import app.openconnect.ConnectionEditorActivity;
-import app.openconnect.FileSelect;
-import app.openconnect.R;
-import app.openconnect.ShowTextPreference;
-import app.openconnect.TokenImportActivity;
-import app.openconnect.VpnProfile;
-import app.openconnect.core.ProfileManager;
 
 public class ConnectionEditorFragment extends PreferenceFragment
 		implements OnSharedPreferenceChangeListener {

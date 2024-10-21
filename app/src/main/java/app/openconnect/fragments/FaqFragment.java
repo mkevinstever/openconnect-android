@@ -26,6 +26,9 @@
 
 package app.openconnect.fragments;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -34,10 +37,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import app.openconnect.R;
 import app.openconnect.core.AssetExtractor;
 

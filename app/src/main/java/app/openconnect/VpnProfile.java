@@ -26,10 +26,10 @@
 
 package app.openconnect;
 
-import android.content.SharedPreferences;
-
 import java.util.Locale;
 import java.util.UUID;
+
+import android.content.SharedPreferences;
 
 public class VpnProfile implements Comparable<VpnProfile> {
     public static final String INLINE_TAG = "[[INLINE]]";

@@ -24,14 +24,14 @@
 
 package app.openconnect;
 
+import app.openconnect.core.ProfileManager;
+import app.openconnect.fragments.ConnectionEditorFragment;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import app.openconnect.core.ProfileManager;
-import app.openconnect.fragments.ConnectionEditorFragment;
 
 public class ConnectionEditorActivity extends Activity {
 

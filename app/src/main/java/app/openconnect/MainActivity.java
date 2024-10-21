@@ -26,23 +26,18 @@
 
 package app.openconnect;
 
+import java.util.ArrayList;
+
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-
-import java.util.ArrayList;
-
 import app.openconnect.core.OpenConnectManagementThread;
 import app.openconnect.core.OpenVpnService;
 import app.openconnect.core.VPNConnector;
-import app.openconnect.fragments.FaqFragment;
-import app.openconnect.fragments.FeedbackFragment;
-import app.openconnect.fragments.LogFragment;
-import app.openconnect.fragments.StatusFragment;
-import app.openconnect.fragments.VPNProfileList;
+import app.openconnect.fragments.*;
 
 public class MainActivity extends Activity {
 

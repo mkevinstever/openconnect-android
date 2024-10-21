@@ -24,15 +24,14 @@
 
 package app.openconnect.fragments;
 
-import android.content.Context;
-import android.content.Intent;
-import android.view.Menu;
-import android.view.MenuItem;
-
 import org.acra.ACRA;
 import org.acra.ACRAConfiguration;
 import org.acra.ErrorReporter;
 
+import android.content.Context;
+import android.content.Intent;
+import android.view.Menu;
+import android.view.MenuItem;
 import app.openconnect.FragActivity;
 import app.openconnect.R;
 

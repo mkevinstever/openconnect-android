@@ -26,17 +26,16 @@
 
 package app.openconnect.api;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.VpnService;
-import android.os.Bundle;
-
 import org.acra.ACRA;
 import org.acra.ACRAConfiguration;
 import org.acra.ErrorReporter;
 
 import app.openconnect.R;
 import app.openconnect.core.OpenVpnService;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.VpnService;
+import android.os.Bundle;
 
 public class GrantPermissionsActivity extends Activity {
 	public static final String EXTRA_START_ACTIVITY = ".start_activity";

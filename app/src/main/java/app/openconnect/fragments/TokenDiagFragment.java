@@ -24,6 +24,12 @@
 
 package app.openconnect.fragments;
 
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.TimeZone;
+
+import org.stoken.LibStoken;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
@@ -47,13 +53,6 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.stoken.LibStoken;
-
-import java.text.DateFormat;
-import java.util.Calendar;
-import java.util.TimeZone;
-
 import app.openconnect.R;
 import app.openconnect.VpnProfile;
 import app.openconnect.core.FragCache;

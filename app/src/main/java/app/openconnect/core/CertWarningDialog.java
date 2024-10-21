@@ -24,12 +24,11 @@
 
 package app.openconnect.core;
 
+import app.openconnect.R;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
-
-import app.openconnect.R;
 
 public class CertWarningDialog extends UserDialog
 		implements DialogInterface.OnClickListener, DialogInterface.OnDismissListener {

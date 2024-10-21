@@ -25,6 +25,8 @@
 
 package app.openconnect;
 
+import app.openconnect.core.X509Utils;
+
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Context;
@@ -36,8 +38,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import app.openconnect.core.X509Utils;
 
 
 public class FileSelectLayout extends LinearLayout implements OnClickListener {
