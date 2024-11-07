@@ -10,6 +10,13 @@ Changelog: see [doc/CHANGES.txt](doc/CHANGES.txt)
 
 To help out with translations, please visit [this project's page on Transifex](https://www.transifex.com/projects/p/ics-openconnect/).
 
+## Known Issues
+
+Update on Oct 2024
+
+1. Use deprecated Android UI elements.
+2. The username and password input view will not pop up when the main thread is executed.
+
 ## Downloads and Support
 
 You can build the package and install it on your phone. There are no openconnect packages in any Android store released by this project.
