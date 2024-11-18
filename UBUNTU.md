@@ -119,6 +119,8 @@ make VERBOSE=1
 
 ### 12. Build APK
 
+**Please switch to JDK 17 first**
+
 Finally, run the Gradle build command in the project root directory:
 
 ```bash
