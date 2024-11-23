@@ -8,6 +8,8 @@ jobs:
   build:
     name: Build APK
     runs-on: ubuntu-latest
+    env:
+      TZ: Etc/UTC
 
     steps:
       - name: Checkout code
