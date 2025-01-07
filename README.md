@@ -9,7 +9,7 @@ To get the latest available version, go to [openconnect project GitLab](https://
 
 ## How to download the latest available version?
 
-You can download the latest version android app with debug flag on https://gitlab.com/openconnect/ics-openconnect/-/jobs
+You can download the latest version android app APK file with debug flag on https://gitlab.com/openconnect/ics-openconnect/-/jobs
 
 1.Find a any job named test/build-debug and state is success.
 
