@@ -1,6 +1,6 @@
-### 如何下载最新版本Openconnect Android APK文件
+### 如何下载最新版本的Openconnect for Android 的APK文件呢？
 
-您可以在以下链接下载最新版本的APK版本文件（使用testkey签名的debug版本） https://gitlab.com/openconnect/ics-openconnect/-/jobs
+您可以在以下链接下载最新版本的APK版本文件（使用testkey签名的debug版本），此链接来源于Openconnect官方项目 https://gitlab.com/openconnect/ics-openconnect/-/jobs
 
 1.打开这个链接, 找到任意一个近期名为 test/build-debug 的Job 并且 状态为Passed。
 ![step1](./step-1.png)
