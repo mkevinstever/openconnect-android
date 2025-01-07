@@ -20,3 +20,5 @@ You can download the latest version android app APK file with debug flag on http
 4.You will see debug version APK, click name.
 
 5.Click download.
+
+**Still can't figure out how to download? open [here](./docs-download/HTD.md) for detailed instructions.**
